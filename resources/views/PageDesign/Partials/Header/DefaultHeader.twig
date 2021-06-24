@@ -1,0 +1,78 @@
+{% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% set description = '' %}
+{% if block('description') is defined %}
+    {% set description = block('description') %}
+{% elseif details is not null %}
+    {% set description = details.metaDescription %}
+{% endif %}
+<header id="page-header" class="default-header d-print-none">
+    <div class="container-max">
+        <div class="row flex-row-reverse position-relative">
+            <div id="page-header-parent" class="col-12 header-container" data-header-offset>
+                <div class="top-bar header-fw unfixed">
+                    <div class="container-max px-0 pr-lg-3">
+                        <div class="row mx-0 flex-row position-relative">
+                            {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
+                            <div class="top-bar-items w-100">
+							
+                                <div class="controls">
+									<ul class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
+										{#
+									    <li class="list-inline-item dropdown ml-3 p-2">
+									        <i class="fa fa-info-circle">
+									        	<a href="#" data-toggle="tooltip" data-placement="right" title="{{ description | trim }}"></a>
+									        </i> 
+									    </li>
+									    #}
+				
+										<li class="list-inline-item control-user d-md-none">
+											<a href="/login" class="nav-link" aria-label="{{ trans('Ceres::Template.login') }}">
+												<i class="fa fa-user-plus mr-0 mr-sm-1" aria-hidden="true"></i>
+												<span class="d-none d-sm-inline">{{ trans("Ceres::Template.login") }}</span>
+											</a>
+										</li>
+											
+										{% if services.url.isRouteEnabled("wish-list") %}
+											<li class="list-inline-item control-wish-list pr-3">
+												<wish-list-count>
+												<a class="nav-link" aria-label="{{ trans('Ceres::Template.wishList') }}">
+													<span class="badge-right mr-1 d-none d-sm-inline">0</span>
+													<i class="fa fa-heart-o" aria-hidden="true"></i>
+												</a>
+												</wish-list-count>
+											</li>
+										{% endif %}
+			
+														
+										<li class="list-inline-item control-basket d-md-none position-relative">
+											<a href="/warenkorb" class="toggle-basket-preview nav-link">
+											{% if config("Ceres.header.basket_values") != "sum" %}
+												<span class="mr-2" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
+											{% endif %}
+											<icon icon="shopping-cart" class-loading="fa-refresh" :loading="$store.state.basket.isBasketLoading"></icon>
+											{% if config("Ceres.header.basket_values") != "quantity" %}
+												<span class="badge p-0 ml-2 pr-3" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+												<span class="badge p-0 ml-2 pr-3" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+											{% endif %}
+											</a>	
+										</li>
+										
+									</ul>
+                                </div>
+								
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+
+                {% include "Front::PageDesign.Partials.Header.Navigation" %}
+
+                <!-- breadcrumb -->
+                {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
+                    {% include "Front::PageDesign.Partials.Header.Breadcrumb" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>

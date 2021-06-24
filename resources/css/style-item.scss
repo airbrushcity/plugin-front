@@ -1,0 +1,60 @@
+@import "addon/item";
+@import "addon/amazonpay";
+.con-reinit {
+        margin-top: 1rem;
+    }
+    .payment-confirmation-btn {
+        padding: 6px .5rem;
+        border-radius: 0.1rem;
+        color: white!important;
+        background-color: #7ED321;
+        cursor: pointer;
+    }
+    .payment-confirmation-btn:hover {
+        background-color: #569117;
+    }
+    .payment-confirmation-btn > span {
+        font-weight: normal;
+    }
+	
+.payPalSpinner.payPalLoading {
+        padding: 50px;
+        position: relative;
+        text-align: center;
+    }
+
+    .payPalSpinner.payPalLoading:before {
+        content: "";
+        height: 30px;
+        width: 30px;
+        margin: -15px auto auto -15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        border-width: 8px;
+        border-style: solid;
+        border-color: #2180c0 #ccc #ccc;
+        border-radius: 100%;
+        -webkit-animation: rotation .7s infinite linear;
+                animation: rotation .7s infinite linear;
+    }
+
+    @-webkit-keyframes rotation {
+        from {
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        } to {
+              -webkit-transform: rotate(359deg);
+                      transform: rotate(359deg);
+          }
+    }
+
+    @keyframes rotation {
+        from {
+            -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+        } to {
+              -webkit-transform: rotate(359deg);
+                      transform: rotate(359deg);
+          }
+    }
