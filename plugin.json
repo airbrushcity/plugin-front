@@ -13,7 +13,7 @@
     "phone"             : "+49 581 20813009",
     "categories"        : ["3885"],
     "keywords"          : ["theme", "Front", "template"],
-    "type"              : "template",
+    "type"              : "theme",
     "require"           : {
         "Ceres": "~5.0.33"
     },
