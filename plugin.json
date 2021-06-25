@@ -1,22 +1,17 @@
 {
-    "version"           : "5.0.33",
-    "name"              : "Front",
-    "marketplaceName"   : {"de": "Front","en": "Front"},
-    "description"       : "Customisation Theme. Seo und Optik optimierung vom Ceres Template.",
-    "author"            : "Alexander Kolbfleisch",
-    "license"           : "AGPL-3.0",
-    "pluginIcon"        : "icon_plugin_xs.png",
-    "price"             : 0.00,
-    "shortDescription"  : {"de": "Shop Theme der Airbrush City GmbH. ","en": "Shop Theme of Company Airbrush City GmbH."},
-    "authorIcon"        : "icon_author_xs.png",
-    "email"             : "a.kolbfleisch@outlook.de",
-    "phone"             : "+49 581 20813009",
-    "categories"        : ["3885"],
-    "keywords"          : ["theme", "Front", "template"],
-    "type"              : "theme",
-    "require"           : {
-        "Ceres": "~5.0.33"
-    },
-    "namespace"         : "Front",
-    "serviceProvider"   : "Front\\Providers\\TemplateServiceProvider"
+    "version": "5.0.33",
+    "name": "Front",
+    "description": "Customisation Theme",
+    "namespace": "Front",
+    "author": "Alexander Kolbfleisch",
+    "keywords": ["theme", "Ceres", "template"],
+    "type": "theme",
+    "require": [],
+    "serviceProvider": "Front\\Providers\\FrontServiceProvider",
+    "dataProviders": [{
+            "key": "Front\\Containers\\FrontContainer",
+            "name": "Front",
+            "description": "Seo und Optik optimierung"
+        }
+    ]
 }

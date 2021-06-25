@@ -23,16 +23,15 @@
 <link rel="stylesheet" href="{{ itemCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path('Front') }}" data-sass-original="{{ itemSCSS }}"{% endif %}>
 {{ LayoutContainer.show("Front::SingleItem.Styles") }}
 {% endif %}
+
 {% if isShopBuilder %}<link rel="stylesheet" href="{{ plugin_path("Front") }}/css/style-shopbuilder.css?v={{ buildHash }}">{% endif %}
 {{ LayoutContainer.show("Ceres::Template.StyleOverwrite") }}
 <!-- Extend the existing style with a template -->
 {{ LayoutContainer.show("Ceres::Template.Style") }}
 {{ get_shop_builder_styles() }}
+
 {% for styleTemplate in get_additional_styles() %}
-    {% if styleTemplate.path == "Feedback::Content.Styles" %}
-    {% else %}
-    {% include styleTemplate.path ignore missing with styleTemplate.params %}
-    {% endif %}
+{% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
 </head>
 
