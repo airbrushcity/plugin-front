@@ -10,6 +10,11 @@
 <link rel="alternate" hreflang="{{language}}" href="{{url}}"/>
 {% endfor %}{% endif %}
 
+{% set min2Suffix = '.min' %}
+{% if ceresConfig.log.performanceLevel  == 'development' %}
+    {% set min2Suffix = '' %}
+{% endif %}
+
 <style data-font="Custom-Font">.icons-loading .fa { visibility: hidden !important; }{% spaceless %}
 {% set customFont = {regular: config('Front.custom-font-regular'),bold: config('Front.custom-font-bold'),italic: config('Front.custom-font-italic'),boldItalic: config('Front.custom-font-bold-italic')}%}
 {% if customFont.regular %}@font-face {font-family: "Custom-Font";src: url("{{ customFont.regular }}");}{% endif %}
@@ -22,11 +27,6 @@
 {% set checkoutSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ min2Suffix ~ ".scss?v=" ~ buildHash %}
 {% set defaultCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ min2Suffix ~ ".css?v=" ~ buildHash %}
 {% set defaultSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ min2Suffix ~ ".scss?v=" ~ buildHash %}
-
-{% set min2Suffix = '.min' %}
-{% if ceresConfig.log.performanceLevel  == 'development' %}
-    {% set min2Suffix = '' %}
-{% endif %}
 {% endspaceless %}
 
 <link rel="preload" href="{{ iconCSS }}" as="style" onload="this.onload=null;this.rel='stylesheet';">
