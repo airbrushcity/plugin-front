@@ -48,13 +48,13 @@
 				 <ul id="controlsList" class="controls-list py-2 pt-3 mb-0 d-flex list-inline justify-content-between align-items-center h-75 mt-2">
      									
                     <li class="list-inline-item">
-						{% if services.authentication.isLoggedIn() == 1 %}
-							<a href="/home/login" class="nav-link h5 text-white" aria-label="{{ trans('Ceres::Template.login') }}">
+						{% if services.authentication.isLoggedIn() == true %}
+							<a href="/my-account" class="nav-link h5 text-white" aria-label="{{ trans('Ceres::Template.myAccount') }}">
 								<i class="fa fa-user-plus mr-0 mr-sm-1 h5" aria-hidden="true"></i>
-								<span class="p-0 text-white">{{ trans("Ceres::Template.login") }}</span>
+								<span class="p-0 text-white">{{ trans('Ceres::Template.myAccount') }}</span>
 							</a>
 						{% else %}
-							<a href="/my-account" class="nav-link h5 text-white" aria-label="{{ trans('Ceres::Template.account') }}">
+							<a href="/home/login" class="nav-link h5 text-white" aria-label="{{ trans('Ceres::Template.login') }}">
 								<i class="fa fa-user-plus mr-0 mr-sm-1 h5" aria-hidden="true"></i>
 								<span class="p-0 text-white">{{ trans("Ceres::Template.login") }}</span>
 							</a>
