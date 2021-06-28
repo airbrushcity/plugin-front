@@ -8,6 +8,10 @@
 {% embed getPartial('page-metadata') %}{% endembed %}
 {% endblock %}
 {% include getPartial('head') %}
+{% set minSuffix = '.min' %}
+{% if ceresConfig.log.performanceLevel  == 'development' %}
+    {% set minSuffix = '' %}
+{% endif %}
 {% if assetName == 'ceres-checkout' %}
 {% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".css?v=" ~ buildHash %}
 {% set checkoutSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
@@ -128,11 +132,6 @@
 
 {{ get_json_data() }}
 
-{% set minSuffix = '.min' %}
-{% if ceresConfig.log.performanceLevel  == 'development' %}
-    {% set minSuffix = '' %}
-{% endif %}
-
 <!-- SSR:entry({{ ssr_entry('Front', 'resources/js/dist/ceres-server' ~ minSuffix ~ '.js') }}) -->
 <!-- SSR:on() -->
 <script src="{{ config("Front.Settings.CdnPluginUrl") }}/js/dist/ceres-client{{ minSuffix }}.js?v={{ buildHash }}"></script>
@@ -196,7 +195,6 @@
 {% endif %}
 
 <script>
-    {% if request.get("openBasketPreview") == 1 %}window.ceresStore.dispatch("loadComponent", "basket-preview"){% endif %}
     {% if request.get("show") == "forgotPassword" %}window.ceresStore.dispatch("loadComponent", "forgot-password-modal"){% endif %}
 </script>
 
