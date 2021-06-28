@@ -22,8 +22,8 @@
 <link rel="stylesheet" href="{{ defaultCSS }}"{% if isShopBuilder %} data-sass-root="{{ config("Front.Settings.CdnPluginUrl") }}" data-sass-original="{{ defaultSCSS }}"{% endif %}>
 {% endif %}
 {% if isItem %}
-{% set itemCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-item.min.css?v=" ~ buildHash %}
-{% set itemSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-item.min.scss?v=" ~ buildHash %}
+{% set itemCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-item" ~ minSuffix ~ ".css?v=" ~ buildHash %}
+{% set itemSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-item" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
 <link rel="stylesheet" href="{{ itemCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path('Front') }}" data-sass-original="{{ itemSCSS }}"{% endif %}>
 {{ LayoutContainer.show("Front::SingleItem.Styles") }}
 {% endif %}
