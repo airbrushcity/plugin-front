@@ -5439,6 +5439,154 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_es_string_search_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.search.js */ "./node_modules/core-js/modules/es.string.search.js");
+/* harmony import */ var core_js_modules_es_string_search_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_search_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.regexp.exec.js */ "./node_modules/core-js/modules/es.regexp.exec.js");
+/* harmony import */ var core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_regexp_exec_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/ApiService */ "./resources/js/src/app/services/ApiService.js");
+/* harmony import */ var _services_NotificationService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/NotificationService */ "./resources/js/src/app/services/NotificationService.js");
+/* harmony import */ var _services_ModalService__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../services/ModalService */ "./resources/js/src/app/services/ModalService.js");
+/* harmony import */ var _services_ValidationService__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../services/ValidationService */ "./resources/js/src/app/services/ValidationService.js");
+/* harmony import */ var _services_UrlService__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../services/UrlService */ "./resources/js/src/app/services/UrlService.js");
+/* harmony import */ var _helper_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../helper/utils */ "./resources/js/src/app/helper/utils.js");
+
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "forgot-password-modal",
+  props: {
+    currentTemplate: String
+  },
+  data: function data() {
+    return {
+      username: "",
+      isDisabled: false,
+      honeypot: ""
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$nextTick(function () {
+      $(_this.$refs.pwdModal).on("hidden.bs.modal", function () {
+        _this.username = "";
+      });
+      var urlParams = _services_UrlService__WEBPACK_IMPORTED_MODULE_6__["default"].getUrlParams(document.location.search);
+
+      if (!Object(_helper_utils__WEBPACK_IMPORTED_MODULE_7__["isNullOrUndefined"])(urlParams.show) && urlParams.show === "forgotPassword") {
+        _services_ModalService__WEBPACK_IMPORTED_MODULE_4__["default"].findModal(_this.$refs.pwdModal).show();
+        _this.username = !Object(_helper_utils__WEBPACK_IMPORTED_MODULE_7__["isNullOrUndefined"])(urlParams.email) ? urlParams.email : "";
+      }
+    });
+  },
+  watch: {
+    username: function username(val, oldVal) {
+      this.resetError();
+    }
+  },
+  methods: {
+    validateResetPwd: function validateResetPwd() {
+      var _this2 = this;
+
+      _services_ValidationService__WEBPACK_IMPORTED_MODULE_5__["default"].validate(this.$refs.pwdModal).done(function () {
+        _this2.sendResetPwd();
+      }).fail(function (invalidFields) {
+        _services_ValidationService__WEBPACK_IMPORTED_MODULE_5__["default"].markInvalidFields(invalidFields, "error");
+      });
+    },
+
+    /**
+     *  Reset password
+     */
+    sendResetPwd: function sendResetPwd() {
+      var _this3 = this;
+
+      this.isDisabled = true;
+      _services_ApiService__WEBPACK_IMPORTED_MODULE_2__["default"].post("/rest/io/customer/password_reset", {
+        email: this.username,
+        honeypot: this.honeypot
+      }).done(function () {
+        _services_ModalService__WEBPACK_IMPORTED_MODULE_4__["default"].findModal(_this3.$refs.pwdModal).hide();
+        _this3.isDisabled = false;
+        _services_NotificationService__WEBPACK_IMPORTED_MODULE_3__["default"].success(_this3.$translate("Ceres::Template.loginSendEmailOk")).closeAfter(5000);
+      }).fail(function () {
+        _this3.isDisabled = false;
+        _services_NotificationService__WEBPACK_IMPORTED_MODULE_3__["default"].error(_this3.$translate("Ceres::Template.loginResetPwDErrorOnSendEmail")).closeAfter(5000);
+      });
+    },
+    cancelResetPwd: function cancelResetPwd() {
+      this.resetError();
+      _services_ModalService__WEBPACK_IMPORTED_MODULE_4__["default"].findModal(this.$refs.pwdModal).hide().then(function () {
+        _services_ModalService__WEBPACK_IMPORTED_MODULE_4__["default"].findModal(document.getElementById("login")).show();
+      });
+    },
+    resetError: function resetError() {
+      _services_ValidationService__WEBPACK_IMPORTED_MODULE_5__["default"].unmarkAllFields(this.$refs.pwdModal);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/customer/login/GuestLogin.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/customer/login/GuestLogin.vue?vue&type=script&lang=js& ***!
@@ -46471,6 +46619,140 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=template&id=7f94eb33&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=template&id=7f94eb33& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      staticClass: "reset-pwd-container login-pwd-reset",
+      attrs: { id: "reset-pwd-form-" + _vm._uid, method: "post" }
+    },
+    [
+      _vm._ssrNode(
+        '<div id="resetPwd" tabindex="-1" role="dialog" class="modal fade">',
+        "</div>",
+        [
+          _vm._ssrNode('<div class="modal-dialog">', "</div>", [
+            _vm._ssrNode(
+              '<div class="modal-content">',
+              "</div>",
+              [
+                _vm._ssrNode(
+                  '<div class="modal-header"><div class="modal-title h3">' +
+                    _vm._ssrEscape(
+                      _vm._s(
+                        _vm.$translate("Ceres::Template.loginForgotPassword")
+                      )
+                    ) +
+                    '</div> <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button></div> <div class="modal-body"><div class="alert alert-info w-100 pwd-forgot-info"><span class="info-badge">' +
+                    _vm._ssrEscape(
+                      _vm._s(
+                        _vm.$translate(
+                          "Ceres::Template.loginForgotPasswordInfo"
+                        )
+                      )
+                    ) +
+                    '</span></div> <div class="row"><div class="col-12"><input type="text" name="username" autocomplete="new-password" tabindex="-1"' +
+                    _vm._ssrAttr("value", _vm.honeypot) +
+                    ' class="honey"> <div data-validate="mail" class="input-unit no-bottom"><input type="email" name="email" autocomplete="email"' +
+                    _vm._ssrAttr("id", "mail" + _vm._uid) +
+                    " data-autofocus" +
+                    _vm._ssrAttr("value", _vm.username) +
+                    "> <label" +
+                    _vm._ssrAttr("for", "mail" + _vm._uid) +
+                    ">" +
+                    _vm._ssrEscape(
+                      _vm._s(_vm.$translate("Ceres::Template.loginEmail")) + "*"
+                    ) +
+                    '</label></div> <span class="error-msg">' +
+                    _vm._ssrEscape(
+                      _vm._s(
+                        _vm.$translate("Ceres::Template.loginEnterConfirmEmail")
+                      )
+                    ) +
+                    "</span></div></div></div> "
+                ),
+                _vm._ssrNode('<div class="modal-footer">', "</div>", [
+                  _vm._ssrNode(
+                    "<div>",
+                    "</div>",
+                    [
+                      _vm._t("extend-overlay-buttons"),
+                      _vm._ssrNode(
+                        " " +
+                          (!!_vm.currentTemplate &&
+                          _vm.currentTemplate != "tpl.login"
+                            ? '<button type="button" class="btn btn-danger btn-medium mr-2"><i aria-hidden="true" class="fa fa-arrow-left"></i>' +
+                              _vm._ssrEscape(
+                                "\n                                " +
+                                  _vm._s(
+                                    _vm.$translate(
+                                      "Ceres::Template.loginBackToLogin"
+                                    )
+                                  ) +
+                                  "\n                            "
+                              ) +
+                              "</button>"
+                            : "<!---->") +
+                          " "
+                      ),
+                      _vm._ssrNode(
+                        "<button" +
+                          _vm._ssrAttr("disabled", _vm.isDisabled) +
+                          ' class="btn btn-primary btn-medium">',
+                        "</button>",
+                        [
+                          _vm._ssrNode(
+                            _vm._ssrEscape(
+                              "\n\t\t\t\t\t\t\t\t" +
+                                _vm._s(
+                                  _vm.$translate("Ceres::Template.loginSend")
+                                ) +
+                                "\n\t\t\t\t\t\t\t\t"
+                            )
+                          ),
+                          _c("icon", {
+                            attrs: {
+                              icon: "paper-plane-o",
+                              loading: _vm.isDisabled
+                            }
+                          })
+                        ],
+                        2
+                      )
+                    ],
+                    2
+                  )
+                ])
+              ],
+              2
+            )
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/customer/login/GuestLogin.vue?vue&type=template&id=3b2359c6&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/app/components/customer/login/GuestLogin.vue?vue&type=template&id=3b2359c6& ***!
@@ -58976,7 +59258,7 @@ module.exports = __webpack_require__(/*! ./build */ "./node_modules/vue-template
 /*! exports provided: _args, _from, _id, _inBundle, _integrity, _location, _phantomChildren, _requested, _requiredBy, _resolved, _spec, _where, author, browser, bugs, dependencies, description, devDependencies, homepage, jsdelivr, keywords, license, main, name, repository, types, unpkg, version, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"_args\":[[\"vue-template-compiler@2.6.12\",\"D:\\\\1nodespace\\\\Front\"]],\"_from\":\"vue-template-compiler@2.6.12\",\"_id\":\"vue-template-compiler@2.6.12\",\"_inBundle\":false,\"_integrity\":\"sha512-OzzZ52zS41YUbkCBfdXShQTe69j1gQDZ9HIX8miuC9C3rBCk9wIRjLiZZLrmX9V+Ftq/YEyv1JaVr5Y/hNtByg==\",\"_location\":\"/vue-template-compiler\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"vue-template-compiler@2.6.12\",\"name\":\"vue-template-compiler\",\"escapedName\":\"vue-template-compiler\",\"rawSpec\":\"2.6.12\",\"saveSpec\":null,\"fetchSpec\":\"2.6.12\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.6.12.tgz\",\"_spec\":\"2.6.12\",\"_where\":\"D:\\\\1nodespace\\\\Front\",\"author\":{\"name\":\"Evan You\"},\"browser\":\"browser.js\",\"bugs\":{\"url\":\"https://github.com/vuejs/vue/issues\"},\"dependencies\":{\"de-indent\":\"^1.0.2\",\"he\":\"^1.1.0\"},\"description\":\"template compiler for Vue 2.0\",\"devDependencies\":{\"vue\":\"file:../..\"},\"homepage\":\"https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme\",\"jsdelivr\":\"browser.js\",\"keywords\":[\"vue\",\"compiler\"],\"license\":\"MIT\",\"main\":\"index.js\",\"name\":\"vue-template-compiler\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vuejs/vue.git\"},\"types\":\"types/index.d.ts\",\"unpkg\":\"browser.js\",\"version\":\"2.6.12\"}");
+module.exports = JSON.parse("{\"_args\":[[\"vue-template-compiler@2.6.12\",\"D:\\\\1nodespace\\\\plugin-front\"]],\"_from\":\"vue-template-compiler@2.6.12\",\"_id\":\"vue-template-compiler@2.6.12\",\"_inBundle\":false,\"_integrity\":\"sha512-OzzZ52zS41YUbkCBfdXShQTe69j1gQDZ9HIX8miuC9C3rBCk9wIRjLiZZLrmX9V+Ftq/YEyv1JaVr5Y/hNtByg==\",\"_location\":\"/vue-template-compiler\",\"_phantomChildren\":{},\"_requested\":{\"type\":\"version\",\"registry\":true,\"raw\":\"vue-template-compiler@2.6.12\",\"name\":\"vue-template-compiler\",\"escapedName\":\"vue-template-compiler\",\"rawSpec\":\"2.6.12\",\"saveSpec\":null,\"fetchSpec\":\"2.6.12\"},\"_requiredBy\":[\"/\"],\"_resolved\":\"https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.6.12.tgz\",\"_spec\":\"2.6.12\",\"_where\":\"D:\\\\1nodespace\\\\plugin-front\",\"author\":{\"name\":\"Evan You\"},\"browser\":\"browser.js\",\"bugs\":{\"url\":\"https://github.com/vuejs/vue/issues\"},\"dependencies\":{\"de-indent\":\"^1.0.2\",\"he\":\"^1.1.0\"},\"description\":\"template compiler for Vue 2.0\",\"devDependencies\":{\"vue\":\"file:../..\"},\"homepage\":\"https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme\",\"jsdelivr\":\"browser.js\",\"keywords\":[\"vue\",\"compiler\"],\"license\":\"MIT\",\"main\":\"index.js\",\"name\":\"vue-template-compiler\",\"repository\":{\"type\":\"git\",\"url\":\"git+https://github.com/vuejs/vue.git\"},\"types\":\"types/index.d.ts\",\"unpkg\":\"browser.js\",\"version\":\"2.6.12\"}");
 
 /***/ }),
 
@@ -72493,8 +72775,10 @@ function createApp(options, store) {
   });
   vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("reset-password-form", function () {
     return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./app/components/customer/ResetPasswordForm.vue */ "./resources/js/src/app/components/customer/ResetPasswordForm.vue"));
-  }); //Vue.component("forgot-password-modal", () => import("./app/components/customer/login/ForgotPassword.vue"));
-
+  });
+  vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("forgot-password-modal", function () {
+    return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./app/components/customer/login/ForgotPassword.vue */ "./resources/js/src/app/components/customer/login/ForgotPassword.vue"));
+  });
   vue__WEBPACK_IMPORTED_MODULE_11___default.a.component("guest-login", function () {
     return Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./app/components/customer/login/GuestLogin.vue */ "./resources/js/src/app/components/customer/login/GuestLogin.vue"));
   });
@@ -72641,7 +72925,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "4dccfcc4"
+  "31ac851e"
   
 )
 
@@ -72708,7 +72992,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "c4710662"
+  "1a18ad62"
   
 )
 
@@ -72775,7 +73059,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "71309e78"
+  "7cebfc10"
   
 )
 
@@ -72842,7 +73126,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "25805349"
+  "7f8a56c9"
   
 )
 
@@ -72909,7 +73193,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "5e9fd02f"
+  "9e3c86a2"
   
 )
 
@@ -72976,7 +73260,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "46096b3c"
+  "2b72f6e2"
   
 )
 
@@ -73043,7 +73327,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "b2fb2aec"
+  "aa74d1ec"
   
 )
 
@@ -73110,7 +73394,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "3746e44e"
+  "739b1a59"
   
 )
 
@@ -73177,7 +73461,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "a5cf55e4"
+  "05ab588e"
   
 )
 
@@ -73244,7 +73528,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "0516a6c7"
+  "802c9972"
   
 )
 
@@ -73310,7 +73594,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "2584af16"
+  "6399ebf5"
   
 )
 
@@ -73359,7 +73643,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "f2b18364"
+  "05f8fc64"
   
 )
 
@@ -73426,7 +73710,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "6e324031"
+  "617f8cb1"
   
 )
 
@@ -73493,7 +73777,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "1c9d9d7e"
+  "4e30c47e"
   
 )
 
@@ -73560,7 +73844,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "42ffbe50"
+  "43d17750"
   
 )
 
@@ -73626,7 +73910,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "0d8db15a"
+  "1677c44c"
   
 )
 
@@ -73674,7 +73958,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "17932965"
+  "026cd436"
   
 )
 
@@ -73723,7 +74007,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "0f4731b9"
+  "e075d58e"
   
 )
 
@@ -73790,7 +74074,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "64787381"
+  "6cddb701"
   
 )
 
@@ -73857,7 +74141,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "1e34c6ee"
+  "6cac736e"
   
 )
 
@@ -73924,7 +74208,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "07c01f75"
+  "5d8e2816"
   
 )
 
@@ -73991,7 +74275,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "45c3d537"
+  "cff47c92"
   
 )
 
@@ -74058,7 +74342,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "166d8dcc"
+  "6b99ba4c"
   
 )
 
@@ -74125,7 +74409,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "620e59c4"
+  "019cdd44"
   
 )
 
@@ -74195,7 +74479,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   injectStyles,
   null,
-  "1c6bdd1a"
+  "4041bdf3"
   
 )
 
@@ -74262,7 +74546,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "962d0182"
+  "1a8a42bf"
   
 )
 
@@ -74329,7 +74613,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "4dae0329"
+  "34e46fa9"
   
 )
 
@@ -74370,6 +74654,73 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/src/app/components/customer/login/ForgotPassword.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/src/app/components/customer/login/ForgotPassword.vue ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ForgotPassword_vue_vue_type_template_id_7f94eb33___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ForgotPassword.vue?vue&type=template&id=7f94eb33& */ "./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=template&id=7f94eb33&");
+/* harmony import */ var _ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ForgotPassword.vue?vue&type=script&lang=js& */ "./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ForgotPassword_vue_vue_type_template_id_7f94eb33___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ForgotPassword_vue_vue_type_template_id_7f94eb33___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  "e0ba8588"
+  
+)
+
+component.options.__file = "resources/js/src/app/components/customer/login/ForgotPassword.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ForgotPassword.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=template&id=7f94eb33&":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=template&id=7f94eb33& ***!
+  \**********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_template_id_7f94eb33___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./ForgotPassword.vue?vue&type=template&id=7f94eb33& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/app/components/customer/login/ForgotPassword.vue?vue&type=template&id=7f94eb33&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_template_id_7f94eb33___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ForgotPassword_vue_vue_type_template_id_7f94eb33___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/src/app/components/customer/login/GuestLogin.vue":
 /*!***********************************************************************!*\
   !*** ./resources/js/src/app/components/customer/login/GuestLogin.vue ***!
@@ -74396,7 +74747,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "a5565662"
+  "12f5984f"
   
 )
 
@@ -74463,7 +74814,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "0206e77b"
+  "864c180a"
   
 )
 
@@ -74530,7 +74881,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "8374fb80"
+  "f0836280"
   
 )
 
@@ -74597,7 +74948,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "8e6d0d2c"
+  "38a99cea"
   
 )
 
@@ -74664,7 +75015,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "d1e773a8"
+  "3134aca8"
   
 )
 
@@ -74731,7 +75082,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "27e0680a"
+  "413bf87b"
   
 )
 
@@ -74798,7 +75149,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "2193bb9d"
+  "47326fc6"
   
 )
 
@@ -74865,7 +75216,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "440fc784"
+  "38c369f8"
   
 )
 
@@ -74932,7 +75283,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "be7f502a"
+  "bf51092a"
   
 )
 
@@ -74999,7 +75350,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "4cb0392a"
+  "2ed40feb"
   
 )
 
@@ -75066,7 +75417,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "237aa3fc"
+  "40849a82"
   
 )
 
@@ -75133,7 +75484,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "21c0d920"
+  "53540020"
   
 )
 
@@ -75200,7 +75551,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "1c78807b"
+  "6eba6cfb"
   
 )
 
@@ -75267,7 +75618,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "27e24d18"
+  "6c8cbcf4"
   
 )
 
@@ -75334,7 +75685,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "b9aa16a4"
+  "1cbabda4"
   
 )
 
@@ -75401,7 +75752,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "deebe038"
+  "f2f49938"
   
 )
 
@@ -75468,7 +75819,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "743e8df9"
+  "6d2a8b0e"
   
 )
 
@@ -75535,7 +75886,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "47cb1a06"
+  "3624767d"
   
 )
 
@@ -75602,7 +75953,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "795f869a"
+  "62dec033"
   
 )
 
@@ -75669,7 +76020,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "eb7c1818"
+  "46f83f18"
   
 )
 
@@ -75736,7 +76087,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "0ac836f1"
+  "0a5f5a71"
   
 )
 
@@ -75803,7 +76154,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "6560cbd3"
+  "04ef4f53"
   
 )
 
@@ -75870,7 +76221,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "f08f9268"
+  "08361a4c"
   
 )
 
@@ -75937,7 +76288,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "76917052"
+  "7978fcd2"
   
 )
 
@@ -76004,7 +76355,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "74076c69"
+  "2eda78e9"
   
 )
 
@@ -76071,7 +76422,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "4ef9d2b5"
+  "08c73f35"
   
 )
 
@@ -76138,7 +76489,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "92b72fae"
+  "5632eba9"
   
 )
 
@@ -76205,7 +76556,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "4ee75eda"
+  "28e5b413"
   
 )
 
@@ -76272,7 +76623,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "5c977943"
+  "7b8f867a"
   
 )
 
@@ -76339,7 +76690,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "688b36f7"
+  "7dc38b12"
   
 )
 
@@ -76406,7 +76757,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "f2159c72"
+  "55264372"
   
 )
 
@@ -76473,7 +76824,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "3c1b9805"
+  "142df6f6"
   
 )
 
@@ -76540,7 +76891,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "14395d72"
+  "d7ccfe1c"
   
 )
 
@@ -76607,7 +76958,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "5d3d587e"
+  "4c72d17e"
   
 )
 
@@ -76674,7 +77025,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "ab033cee"
+  "26a2ae09"
   
 )
 
@@ -76741,7 +77092,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "70f79648"
+  "2017385c"
   
 )
 
@@ -76808,7 +77159,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "48b0d52d"
+  "3eac78ad"
   
 )
 
@@ -76875,7 +77226,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "c634bf40"
+  "1d6383e0"
   
 )
 
@@ -76942,7 +77293,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "d2518e74"
+  "97c84774"
   
 )
 
@@ -77009,7 +77360,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "69d2563c"
+  "8ba88c88"
   
 )
 
@@ -77076,7 +77427,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "e8e22fb8"
+  "1acd74a4"
   
 )
 
@@ -77143,7 +77494,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "efe48256"
+  "f0b63b56"
   
 )
 
@@ -77210,7 +77561,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "653a0a84"
+  "349023f8"
   
 )
 
@@ -77277,7 +77628,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "664a9a32"
+  "326f049c"
   
 )
 
@@ -77344,7 +77695,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "737a6bbc"
+  "3cf3383c"
   
 )
 
@@ -77411,7 +77762,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "e7fefdf0"
+  "025cc488"
   
 )
 
@@ -77478,7 +77829,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "67f0ca1f"
+  "932f12c2"
   
 )
 
@@ -77545,7 +77896,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "dfa26c10"
+  "0c531678"
   
 )
 
@@ -77612,7 +77963,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "576ca06e"
+  "4aa5f349"
   
 )
 
@@ -77679,7 +78030,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "5e98c514"
+  "22f589f6"
   
 )
 
@@ -77746,7 +78097,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   false,
   null,
   null,
-  "b5d06608"
+  "44a6507c"
   
 )
 

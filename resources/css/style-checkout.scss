@@ -151,22 +151,23 @@ $gray-700 : #495057 !default;
 $gray-800 : #343a40 !default;
 $gray-900 : #212529 !default;
 $black : #000 !default;
-$blue : #008ebd !default;
+$blue : #0044cc !default;
 $indigo : #6610f2 !default;
-$purple : #6f42c1 !default;
+$purple : #4a0202 !default;
 $pink : #e83e8c !default;
 $red : #d4021d !default;
 $orange : #fd7e14 !default;
 $yellow : #ffc107 !default;
 $green : #28a745 !default;
-$teal : #20c997 !default;
-$cyan : #17a2b8 !default;
+$teal : #802331 !default;
+$cyan : #b43c3e !default;
+
 // Legacy: Do not remove!
 // This variables are filled with the values from the plugin config
 $brand-primary : $blue !default;
-$brand-secondary : $gray-600 !default;
+$brand-secondary : $cyan !default;
 $brand-success : $green !default;
-$brand-info : $cyan !default;
+$brand-info : $purple !default;
 $brand-warning : $yellow !default;
 $brand-danger : $red !default;
 $brand-light : $gray-100 !default;
@@ -176,7 +177,7 @@ $brand-yiq-text-light : $white !default;
 $brand-body-bg : $gray-100 !default;
 $brand-top-bar-bg : $gray-700 !default;
 $brand-top-bar-basket-btn : $blue !default;
-$brand-footer-bg : $gray-100 !default;
+$brand-footer-bg : $teal !default;
 $brand-footer-color : $gray-900 !default;
 $brand-footer-features-bg : $gray-200 !default;
 $brand-footer-features-color : $gray-900 !default;
@@ -193,9 +194,9 @@ $brand-nav-tabs-border-color : #ddd !default;
 }
 
 $primary : check-color($brand-primary, $blue) !default;
-$secondary : check-color($brand-secondary, $gray-600) !default;
+$secondary : check-color($brand-secondary, $cyan) !default;
 $success : check-color($brand-success, $green) !default;
-$info : check-color($brand-info, $cyan) !default;
+$info : check-color($brand-info, $purple) !default;
 $warning : check-color($brand-warning, $yellow) !default;
 $danger : check-color($brand-danger, $red) !default;
 $light : check-color($brand-light, $gray-100) !default;
@@ -227,7 +228,7 @@ $top-bar-basket-color : color-yiq($brand-top-bar-basket-btn) !default;
 //
 // Footer
 //
-$footer-bg : check-color($brand-footer-bg, $gray-100) !default;
+$footer-bg : check-color($brand-footer-bg, $teal) !default;
 $footer-color : check-color($brand-footer-color, $gray-900) !default;
 $footer-features-bg : check-color($brand-footer-features-bg, $gray-200) !default;
 $footer-features-color : check-color($brand-footer-features-color, $gray-900) !default;
@@ -15389,6 +15390,8 @@ html.ie .confirmation-order-list .cmp-order-item {
 }
 
 
+html {overflow-y:scroll;height: 101%;}
+
 body {
     background-color: #fff;
 }
@@ -15476,15 +15479,17 @@ padding:4px 24px 4px 8px;
     padding: 4px 0;
     width: 100%;
     height: 30px;
-    line-height: 22px;
+    line-height: 24px;
     font-size: 12px
 }
 
 .mwst-blende a {
-    color: #d1cfe8;
+    color: #d1cfe8 !important;
 }
 
-.mwst-blende > a:hover {color:#b0add7}
+.mwst-blende > a:hover {color:#b0add7 !important}
+
+.cmpboxrecall {bottom:2px !important}
 #addressBookWidgetDiv,
 #walletWidgetDiv {
     width: 100%;
