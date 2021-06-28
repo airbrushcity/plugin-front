@@ -73,6 +73,16 @@
     </lazy-load>
     <!-- ./BASKET MODAL -->
 
+    <!-- PASSWORD RESET MODAL -->
+    <lazy-load component="forgot-password-modal">
+        <forgot-password-modal :current-template="{{ services.template.getCurrentTemplate() | json_encode }}">
+            <template slot="extendOverlayButtons">
+                {{ LayoutContainer.show("Ceres::LoginOverlay.ExtendOverlayButtons") }}
+            </template>
+        </forgot-password-modal>
+    </lazy-load>
+    <!-- ./PASSWORD RESET MODAL -->
+
 </div>
 <!-- /SSR -->
 

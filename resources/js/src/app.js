@@ -121,7 +121,7 @@ export function createApp(options, store)
     Vue.component("recaptcha", ReCaptcha);
     Vue.component("registration", () => import("./app/components/customer/Registration.vue"));
     Vue.component("reset-password-form", () => import("./app/components/customer/ResetPasswordForm.vue"));
-    //Vue.component("forgot-password-modal", () => import("./app/components/customer/login/ForgotPassword.vue"));
+    Vue.component("forgot-password-modal", () => import("./app/components/customer/login/ForgotPassword.vue"));
     Vue.component("guest-login", () => import("./app/components/customer/login/GuestLogin.vue"));
     Vue.component("login", () => import("./app/components/customer/login/Login.vue"));
     Vue.component("login-view", () => import("./app/components/customer/login/LoginView.vue"));
