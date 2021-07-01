@@ -13149,10 +13149,6 @@ html.ie .confirmation-order-list .cmp-order-item {
 .page-item:not(.disabled):not(.active) {
   cursor: pointer; }
 
-html {
-  overflow-y: scroll;
-  height: 101%; }
-
 body {
   background-color: #fff; }
 
@@ -13234,6 +13230,9 @@ body {
 
 .cmpboxrecall {
   bottom: 2px !important; }
+
+.top-bar {
+  background-color: #441410 !important; }
 
 #addressBookWidgetDiv,
 #walletWidgetDiv {

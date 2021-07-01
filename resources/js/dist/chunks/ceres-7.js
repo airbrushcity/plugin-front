@@ -287,6 +287,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -874,7 +881,69 @@ var render = function() {
                     "has-price": _vm._f("hasItemDefaultPrice")(_vm.item),
                     "item-type": _vm.item.item.itemType
                   }
-                })
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "vat small text-muted" }, [
+                  _vm._v("\n                    * "),
+                  _vm.showNetPrices
+                    ? _c("span", [
+                        _vm._v(
+                          _vm._s(_vm.$translate("Ceres::Template.itemExclVAT"))
+                        )
+                      ])
+                    : _c("span", [
+                        _vm._v(
+                          _vm._s(_vm.$translate("Ceres::Template.itemInclVAT"))
+                        )
+                      ]),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.$translate("Ceres::Template.itemExclusive")) +
+                      "\n                    "
+                  ),
+                  _vm.$ceres.config.global.shippingCostsCategoryId > 0
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "text-appearance",
+                          attrs: {
+                            "data-toggle": "modal",
+                            href: "#shippingscosts",
+                            title: _vm.$translate(
+                              "Ceres::Template.itemShippingCosts"
+                            )
+                          }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.$translate(
+                                "Ceres::Template.itemShippingCosts"
+                              )
+                            )
+                          )
+                        ]
+                      )
+                    : _c(
+                        "a",
+                        {
+                          attrs: {
+                            title: _vm.$translate(
+                              "Ceres::Template.itemShippingCosts"
+                            )
+                          }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              _vm.$translate(
+                                "Ceres::Template.itemShippingCosts"
+                              )
+                            )
+                          )
+                        ]
+                      )
+                ])
               ],
               2
             )

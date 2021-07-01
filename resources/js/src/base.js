@@ -21,9 +21,7 @@ window.Vuex = Vuex;
 import script2 from "./app/plugins/script2";
 Vue.use(script2);
 
-import jQuery from "jquery";
-window.jQuery = jQuery;
-window.$ = jQuery;
+import "./app/jQuery";
 
 import "bootstrap";
 import "owl.carousel";
@@ -39,6 +37,7 @@ Vue.component("add-item-to-basket-overlay", () => import("./app/components/baske
 Vue.component("add-to-basket", () => import("./app/components/basket/AddToBasket.vue"));
 // Vue.component("basket-preview", () => import("./app/components/basket/BasketPreview.vue"));
 Vue.component("basket-totals", () => import("./app/components/basket/BasketTotals.vue"));
+Vue.component("mail-changed-info", () => import("./app/components/basket/MailChangedInfo.vue"));
 Vue.component("coupon", () => import("./app/components/basket/Coupon.vue"));
 Vue.component("basket-list", () => import("./app/components/basket/list/BasketList.vue"));
 
@@ -88,15 +87,15 @@ Vue.component("live-shopping-item", () => import("./app/components/liveShopping/
 
 Vue.component("order-return", () => import("./app/components/orderReturn/OrderReturn.vue"));
 
-// Vue.component("cookie-bar", () => import("./app/components/pageDesign/CookieBar.vue"));
+Vue.component("cookie-bar", () => import("./app/components/pageDesign/CookieBar.vue"));
 Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
 Vue.component("carousel", () => import("./app/components/pageDesign/Carousel.vue"));
 import Icon from "./app/components/pageDesign/Icon.vue";
 Vue.component("icon", Icon);
+import LanguageDetection from "./app/components/pageDesign/LanguageDetection.vue";
+Vue.component("language-detection", LanguageDetection);
 import MobileNavigation from "./app/components/pageDesign/MobileNavigation.vue";
 Vue.component("mobile-navigation", MobileNavigation);
-import DesktopNavigation from "./app/components/pageDesign/DesktopNavigation.vue";
-Vue.component("desktop-navigation", DesktopNavigation);
 import Notifications from "./app/components/pageDesign/Notifications.vue";
 Vue.component("notifications", Notifications);
 Vue.component("popper", () => import("./app/components/pageDesign/Popper.vue"));

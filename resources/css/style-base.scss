@@ -14328,6 +14328,7 @@ header .widget {
 }
 
 
+// stylelint-disable
 .feedback-container {
     margin-bottom: 40px;
 
@@ -14857,7 +14858,7 @@ header .widget {
     }
 }
 
-html {overflow-y:scroll;height: 101%;}
+// stylelint-disable
 
 body {
     background-color: #fff;
@@ -14957,3 +14958,5 @@ padding:4px 24px 4px 8px;
 .mwst-blende > a:hover {color:#b0add7 !important}
 
 .cmpboxrecall {bottom:2px !important}
+
+.top-bar {background-color:#441410 !important}

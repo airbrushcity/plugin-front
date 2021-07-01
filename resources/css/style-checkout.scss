@@ -15390,7 +15390,7 @@ html.ie .confirmation-order-list .cmp-order-item {
 }
 
 
-html {overflow-y:scroll;height: 101%;}
+// stylelint-disable
 
 body {
     background-color: #fff;
@@ -15490,6 +15490,10 @@ padding:4px 24px 4px 8px;
 .mwst-blende > a:hover {color:#b0add7 !important}
 
 .cmpboxrecall {bottom:2px !important}
+
+.top-bar {background-color:#441410 !important}
+// stylelint-disable
+
 #addressBookWidgetDiv,
 #walletWidgetDiv {
     width: 100%;
@@ -15603,6 +15607,7 @@ padding:4px 24px 4px 8px;
         margin-left: 15px;
     }
 }
+// stylelint-disable
 .con-reinit {
         margin-top: 1rem;
     }
