@@ -1,0 +1,210 @@
+{% import "Front::PageDesign.Macros.IncludeComponents" as Loader %}{% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}{% import "Front::PageDesign.Macros.Translations" as Translations %}{{ component( "Ceres::PageDesign.Components.Notifications" ) }}{{ component( "Ceres::PageDesign.Components.Popper" ) }}{{ component( "Ceres::Customer.Components.ForgotPassword" ) }}{% if isShopBuilder %}{% include "Ceres::Widgets.WidgetComponents" %}{% endif %}{% set isItem = services.template.isItem() == "1" %}{% set currencyFormat = config("Ceres.currency.format") %}{% set defaultLanguage = webstoreConfig.defaultLanguage %}<!DOCTYPE html>
+<html lang="{{ lang }}" data-framework="vue" prefix="og: http://ogp.me/ns#" class="icons-loading">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% block PartialHead %}
+{% embed getPartial('page-metadata') %}{% endembed %}
+{% endblock %}
+{% include getPartial('head') %}
+{% set minSuffix = '.min' %}
+{% if ceresConfig.log.performanceLevel  == 'development' %}
+    {% set minSuffix = '' %}
+{% endif %}
+{% if assetName == 'ceres-checkout' %}
+{% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".css?v=" ~ buildHash %}
+{% set checkoutSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
+<link rel="stylesheet" href="{{ checkoutCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path("Front") }}" data-sass-original="{{ checkoutSCSS }}"{% endif %}>
+{% else %}
+{% set defaultCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ minSuffix ~ ".css?v=" ~ buildHash %}
+{% set defaultSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
+<link rel="stylesheet" href="{{ defaultCSS }}"{% if isShopBuilder %} data-sass-root="{{ config("Front.Settings.CdnPluginUrl") }}" data-sass-original="{{ defaultSCSS }}"{% endif %}>
+{% endif %}
+{% if isItem %}
+{% set itemCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-item.min.css?v=" ~ buildHash %}
+{% set itemSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-item.scss?v=" ~ buildHash %}
+<link rel="stylesheet" href="{{ itemCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path('Front') }}" data-sass-original="{{ itemSCSS }}"{% endif %}>
+{{ LayoutContainer.show("Front::SingleItem.Styles") }}
+{% endif %}
+
+{% if isShopBuilder %}<link rel="stylesheet" href="{{ plugin_path("Front") }}/css/style-shopbuilder.css?v={{ buildHash }}">{% endif %}
+{{ LayoutContainer.show("Ceres::Template.StyleOverwrite") }}
+<!-- Extend the existing style with a template -->
+{{ LayoutContainer.show("Ceres::Template.Style") }}
+{{ get_shop_builder_styles() }}
+
+{% for styleTemplate in get_additional_styles() %}
+{% include styleTemplate.path ignore missing with styleTemplate.params %}
+{% endfor %}
+</head>
+
+<body class="bg-header-image {{ bodyClasses | join(' ') }}">
+
+{{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ config('Front.Settings.GoogleTrackingVariable') }}');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- SSR:app() -->
+<div id="vue-app" class="app">
+    {{ context.renderState() }}
+    <lazy-hydrate when-idle>
+        <notifications template="#vue-notifications" :initial-notifications="{{ notifications | json_encode() }}"></notifications>
+    </lazy-hydrate>
+
+    {% include getPartial('header') %}
+
+    <div id="page-body" class="main">
+        {% block PageBody %}{% endblock %}
+    </div>
+
+    {% include getPartial('footer') %}
+    {% block PartialFooter %}{% endblock %}
+
+    <!-- BASKET MODAL -->
+    <lazy-load component="add-item-to-basket-overlay">
+        <add-item-to-basket-overlay>
+            <template slot="extendOverlayButtons">
+                {{ LayoutContainer.show("Ceres::Basket.ExtendOverlayButtons") }}
+            </template>
+        </add-item-to-basket-overlay>
+    </lazy-load>
+    <!-- ./BASKET MODAL -->
+
+    <!-- PASSWORD RESET MODAL -->
+    <lazy-load component="forgot-password-modal">
+        <forgot-password-modal :current-template="{{ services.template.getCurrentTemplate() | json_encode }}">
+            <template slot="extendOverlayButtons">
+                {{ LayoutContainer.show("Ceres::LoginOverlay.ExtendOverlayButtons") }}
+            </template>
+        </forgot-password-modal>
+    </lazy-load>
+    <!-- ./PASSWORD RESET MODAL -->
+
+</div>
+<!-- /SSR -->
+
+<!-- SSR:global(App) -->
+<script id="app-data" type="application/json">
+    {
+        "config": {{ ceresConfig | json_encode | raw }},
+        "urls": {{ urls | json_encode | raw }},
+        "activeCurrency": "{{ currencyData[currencyFormat] }}",
+        "currencyPattern": {{  services.checkout.getCurrencyPattern() | json_encode | raw }},
+        "isCategoryView": {% if services.template.isCategory() == "1" %}true{% else %}false{% endif %},
+        "isCheckoutView": {% if services.template.isCheckout() == "1" %}true{% else %}false{% endif %},
+        "isSearch": {% if services.template.isSearch() == "1" %}true{% else %}false{% endif %},
+        "isItemView": {% if isItem %}true{% else %}false{% endif %},
+        "templateEvent": "{{ templateEvent }}",
+        "templateType": "{{ urls.templateType }}",
+        "language": "{{ lang }}",
+        "defaultLanguage": "{{ defaultLanguage }}",
+        "decimalSeparator": "{{ config("IO.format.separator_decimal") }}",
+        "urlTrailingSlash": {{ urls.appendTrailingSlash | json_encode }},
+        "propertyFileUrl": "{{ services.propertyFile.getPropertyFileUrl() }}",
+        "isShopBuilder": {{ isShopBuilder | default(false) | json_encode }},
+        "bundleSetting": {{ webstoreConfig.dontSplitItemBundle | default(1) }},
+        "initialPleaseSelect": {{ webstoreConfig.attributeSelectDefaultOption | default(0) }},
+        "publicPath": "{{ plugin_path('Front') ~ '/js/dist/' }}",
+        "isCheapestSorting": "{{ services.template.isCheapestSorting() }}",
+        "initialData": {
+            "shippingCountries": {{ services.country.getActiveCountriesList() | filterFields(["id", "currLangName", "isoCode2", "states.id", "states.name", "vatCodes"]) | json_encode | raw }},
+            "shippingCountryId": {{ services.checkout.getShippingCountryId() }},
+            "showNetPrices": {{ showNetPrices | json_encode }}
+        },
+        "features": {}
+    }
+</script>
+<!-- /SSR -->
+<script>window.App = JSON.parse(document.getElementById("app-data").innerText);</script>
+
+{{ Loader.include_components() }}
+
+{{ LayoutContainer.show("Ceres::Script.Loader") }}
+
+{{ Translations.add( "Ceres", "Template" ) }}
+
+{{ get_json_data() }}
+
+<!-- SSR:entry({{ ssr_entry('Front', 'resources/js/dist/ceres-server' ~ minSuffix ~ '.js') }}) -->
+<!-- SSR:on() -->
+<script src="{{ config("Front.Settings.CdnPluginUrl") }}/js/dist/ceres-client{{ minSuffix }}.js?v={{ buildHash }}"></script>
+<!-- /SSR -->
+<!-- SSR:off() -->
+<script src="{{ config("Front.Settings.CdnPluginUrl") }}/js/dist/{{ assetName }}{{ minSuffix }}.js?v={{ buildHash }}"></script>
+<!-- /SSR -->
+
+{% for scriptTemplate in get_additional_scripts() %}
+    {% include scriptTemplate.path ignore missing with scriptTemplate.params %}
+{% endfor %}
+
+{{ LayoutContainer.show("Ceres::Script.AfterScriptsLoaded") }}
+
+{% if assetName == 'ceres-checkout' %}
+    {{ LayoutContainer.show("Ceres::Checkout.AfterScriptsLoaded") }}
+{% endif %}
+
+{% if isItem %}
+    {{ LayoutContainer.show("Ceres::SingleItem.AfterScriptsLoaded") }}
+{% endif %}
+
+<!-- SSR:on() -->
+<script>
+    window.createApp("#vue-app");
+</script>
+<!-- /SSR -->
+
+<!-- SSR:off() -->
+<script>
+    window.__loadPluginChunk = function(source) {
+        return source += "?v={{ buildHash }}";
+    };
+    window.vueEventHub = new Vue();
+    if (App.config.log.checkSyntax)
+    {
+        var rootElement = document.getElementById("vue-app");
+        rootElement.innerHTML = rootElement.innerHTML.replace(/(?:^|\s)(?::|v-bind:)\S+=(?:""|'')/g, "");
+        window.vueApp = new Vue({
+            store: window.ceresStore
+        });
+        vueApp.$mount( rootElement.cloneNode(true) );
+        if (vueApp.$el.id === "vue-app")
+        {
+            document.body.replaceChild( vueApp.$el, rootElement );
+        }
+    }
+    else
+    {
+        // eslint-disable-next-line no-unused-vars
+        window.vueApp = new Vue({
+            el: "#vue-app",
+            store: window.ceresStore
+        });
+    }
+</script>
+<!-- /SSR -->
+
+{% if isShopBuilder %}
+    {% include "Ceres::Widgets.ShopBuilderDataStore" %}
+{% endif %}
+
+<script>
+    {% if request.get("show") == "forgotPassword" %}window.ceresStore.dispatch("loadComponent", "forgot-password-modal"){% endif %}
+</script>
+
+{{ get_filtered_tags() }}
+
+{{ get_shop_builder_scripts( "latest", ceresConfig.log.performanceLevel == 'live') }}
+
+{% if not services.template.shouldBeCached() %}
+    <input type="hidden" id="csrf-token" value="{{ csrf_token() }}">
+{% endif %}
+
+</body>
+</html>

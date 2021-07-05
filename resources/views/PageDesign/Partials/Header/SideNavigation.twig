@@ -1,0 +1,10 @@
+{% import "Front::Category.Macros.CategoryTree" as Tree %}
+
+{% set lang = services.localizationRepository.getLanguage() %}
+{% set categoryBreadcrumbs = services.category.getHierarchy() %}
+
+{{ Tree.get_sidemenu(categoryBreadcrumbs, categories, "", spacingPadding, inlinePadding, showItemCount, expandableChildren, customEntries) }}
+
+{#
+<desktop-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></desktop-navigation>
+#}
