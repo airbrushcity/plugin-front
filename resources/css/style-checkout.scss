@@ -137,241 +137,281 @@
 // Variables
 // --------------------------------------------------
 $enable-deprecation-messages: false !default;
+
 //
 // Colors
 //
-$white : #fff !default;
-$gray-100 : #f8f9fa !default;
-$gray-200 : #e9ecef !default;
-$gray-300 : #dee2e6 !default;
-$gray-400 : #ced4da !default;
-$gray-500 : #adb5bd !default;
-$gray-600 : #6c757d !default;
-$gray-700 : #495057 !default;
-$gray-800 : #343a40 !default;
-$gray-900 : #212529 !default;
-$black : #000 !default;
-$blue : #0044cc !default;
-$indigo : #6610f2 !default;
-$purple : #4a0202 !default;
-$pink : #e83e8c !default;
-$red : #d4021d !default;
-$orange : #fd7e14 !default;
-$yellow : #ffc107 !default;
-$green : #28a745 !default;
-$teal : #802331 !default;
-$cyan : #b43c3e !default;
+$white:                     #fff !default;
+$gray-100:                  #f8f9fa !default;
+$gray-200:                  #e9ecef !default;
+$gray-300:                  #dee2e6 !default;
+$gray-400:                  #ced4da !default;
+$gray-500:                  #adb5bd !default;
+$gray-600:                  #6c757d !default;
+$gray-700:                  #495057 !default;
+$gray-800:                  #343a40 !default;
+$gray-900:                  #212529 !default;
+$black:                     #000 !default;
+
+$blue:                      #008ebd !default;
+$indigo:                    #6610f2 !default;
+$purple:                    #6f42c1 !default;
+$pink:                      #e83e8c !default;
+$red:                       #d4021d !default;
+$orange:                    #fd7e14 !default;
+$yellow:                    #ffc107 !default;
+$green:                     #28a745 !default;
+$teal:                      #20c997 !default;
+$cyan:                      #17a2b8 !default;
 
 // Legacy: Do not remove!
 // This variables are filled with the values from the plugin config
-$brand-primary : $blue !default;
-$brand-secondary : $cyan !default;
-$brand-success : $green !default;
-$brand-info : $purple !default;
-$brand-warning : $yellow !default;
-$brand-danger : $red !default;
-$brand-light : $gray-100 !default;
-$brand-dark : $gray-800 !default;
-$brand-yiq-text-dark : $gray-900 !default;
-$brand-yiq-text-light : $white !default;
-$brand-body-bg : $gray-100 !default;
-$brand-top-bar-bg : $gray-700 !default;
-$brand-top-bar-basket-btn : $blue !default;
-$brand-footer-bg : $teal !default;
-$brand-footer-color : $gray-900 !default;
-$brand-footer-features-bg : $gray-200 !default;
-$brand-footer-features-color : $gray-900 !default;
-$brand-navbar-background-color : $gray-100 !default;
-$brand-navbar-dark-color : $gray-600 !default;
-$brand-navbar-dark-disabled-color : $gray-500 !default;
-$brand-nav-link-hover-bg : $blue !default;
-$brand-nav-tabs-border-color : #ddd !default;
+$brand-primary:             $blue !default;
+$brand-secondary:           $gray-600 !default;
+$brand-success:             $green !default;
+$brand-info:                $cyan !default;
+$brand-warning:             $yellow !default;
+$brand-danger:              $red !default;
+
 @function check-color($color, $fallback) {
-    @if type-of($color) !=color {
+    @if type-of($color) != color {
         @return $fallback;
     }
     @return $color;
 }
 
-$primary : check-color($brand-primary, $blue) !default;
-$secondary : check-color($brand-secondary, $cyan) !default;
-$success : check-color($brand-success, $green) !default;
-$info : check-color($brand-info, $purple) !default;
-$warning : check-color($brand-warning, $yellow) !default;
-$danger : check-color($brand-danger, $red) !default;
-$light : check-color($brand-light, $gray-100) !default;
-$dark : check-color($brand-dark, $gray-800) !default;
-$yiq-text-dark : check-color($brand-yiq-text-dark, $gray-900) !default;
-$yiq-text-light : check-color($brand-body-bg, $gray-100) !default;
-$yiq-contrasted-threshold : 186 !default;
-$body-bg : check-color($brand-body-bg, $gray-100) !default;
+$primary:                   check-color($brand-primary, $blue) !default;
+$secondary:                 check-color($brand-secondary, $gray-600) !default;
+$success:                   check-color($brand-success, $green) !default;
+$info:                      check-color($brand-info, $cyan) !default;
+$warning:                   check-color($brand-warning, $yellow) !default;
+$danger:                    check-color($brand-danger, $red) !default;
+$light:                     $gray-100 !default;
+$dark:                      $gray-800 !default;
+
+$yiq-text-dark:             $gray-900 !default;
+$yiq-text-light:            $white !default;
+$yiq-contrasted-threshold:  186 !default;
+
+$body-bg:                   $gray-100 !default;
 
 //
 // Sizes
 //
-$heights: ( 1: (xs: 36px, sm: 48px, md: 64px, lg: 72px, xl: 80px), 2: (xs: 72px, sm: 90px, md: 128px, lg: 144px, xl: 160px), 3: (xs: 128px, sm: 160px, md: 192px, lg: 224px, xl: 256px), 4: (xs: 200px, sm: 244px, md: 288px, lg: 332px, xl: 376px), 5: (xs: 272px, sm: 328px, md: 384px, lg: 440px, xl: 496px)) !default;
+$heights: (
+    1: (xs: 36px, sm: 48px, md: 64px, lg: 72px, xl: 80px),
+    2: (xs: 72px, sm: 90px, md: 128px, lg: 144px, xl: 160px),
+    3: (xs: 128px, sm: 160px, md: 192px, lg: 224px, xl: 256px),
+    4: (xs: 200px, sm: 244px, md: 288px, lg: 332px, xl: 376px),
+    5: (xs: 272px, sm: 328px, md: 384px, lg: 440px, xl: 496px)
+) !default;
 //
 // Fonts
 //
-$root-directory : ".." !default;
-$flag-icon-css-path : "#{$root-directory}/images/flags" !default;
-$flag-icon-rect-path : "/4x3" !default;
-$flag-icon-square-path : "/1x1" !default;
-$fa-font-path : "#{$root-directory}/documents/fonts" !default;
+$root-directory:            ".." !default;
+
+$flag-icon-css-path:        "#{$root-directory}/images/flags" !default;
+$flag-icon-rect-path:       "/4x3" !default;
+$flag-icon-square-path:     "/1x1" !default;
+
+$fa-font-path:              "#{$root-directory}/documents/fonts" !default;
+
 //
 // Top Bar
 //
-$top-bar-bg : check-color($brand-top-bar-bg, $gray-700) !default;
-$top-bar-color : color-yiq($brand-top-bar-bg) !default;
-$top-bar-basket-btn : check-color($brand-top-bar-basket-btn, $blue) !default;
-$top-bar-basket-color : color-yiq($brand-top-bar-basket-btn) !default;
+$top-bar-bg:                $gray-700 !default;
+$top-bar-color:             color-yiq($top-bar-bg) !default;
+$top-bar-basket-btn:        $primary !default;
+$top-bar-basket-color:      color-yiq($top-bar-basket-btn) !default;
+
 //
 // Footer
 //
-$footer-bg : check-color($brand-footer-bg, $teal) !default;
-$footer-color : check-color($brand-footer-color, $gray-900) !default;
-$footer-features-bg : check-color($brand-footer-features-bg, $gray-200) !default;
-$footer-features-color : check-color($brand-footer-features-color, $gray-900) !default;
+$footer-bg:                 $gray-100 !default;
+$footer-color:              $gray-900 !default;
+
+$footer-features-bg:        darken($gray-100, 10%) !default;
+$footer-features-color:     $gray-900 !default;
+
+
 //
 // Typography
 //
-$font-family-sans-serif : custom-font,
-helvetica,
-arial,
-sans-serif !default;
-$font-family-serif : georgia,
-"Times New Roman",
-times,
-serif !default;
-$font-family-heading : $font-family-sans-serif !default;
+$font-family-sans-serif:    custom-font, helvetica, arial, sans-serif !default;
+$font-family-serif:         georgia, "Times New Roman", times, serif !default;
+$font-family-heading:       $font-family-sans-serif !default;
+
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
-$font-size-root : 14px !default;
-$h1-font-size : 2rem !default;
-$h2-font-size : 1.8rem !default;
-$h3-font-size : 1.5rem !default;
-$h4-font-size : 1.25rem !default;
-$h5-font-size : 1rem !default;
-$h6-font-size : .8rem !default;
-$display1-size : 4rem !default;
-$display2-size : 3.5rem !default;
-$display3-size : 2.5rem !default;
-$display4-size : 1.5rem !default;
-$headings-line-height : 1.1 !default;
-$hr-border-color : $gray-300 !default;
-$list-inline-padding : 5px !default;
+$font-size-root:            14px !default;
+
+$h1-font-size:              2rem !default;
+$h2-font-size:              1.8rem !default;
+$h3-font-size:              1.5rem !default;
+$h4-font-size:              1.25rem !default;
+$h5-font-size:              1rem !default;
+$h6-font-size:              .8rem !default;
+
+$display1-size:             4rem !default;
+$display2-size:             3.5rem !default;
+$display3-size:             2.5rem !default;
+$display4-size:             1.5rem !default;
+
+$headings-line-height:      1.1 !default;
+
+$hr-border-color:           $gray-300 !default;
+
+$list-inline-padding:       5px !default;
+
 // Components
 //
 // Define common padding and border radius sizes and more.
-$line-height-lg : (4 / 3) !default;
-$border-radius : .1rem !default;
-$border-radius-sm : .15rem !default;
-$border-radius-lg : .2rem !default;
-$progress-border-radius : .25rem !default;
+
+$line-height-lg:            (4 / 3) !default;
+
+$border-radius:             .1rem !default;
+$border-radius-sm:          .15rem !default;
+$border-radius-lg:          .2rem !default;
+
+$progress-border-radius:    .25rem !default;
+
 //Ceres variables
 $aside-columns-width: 30rem !default;
 $autocomplete-max-items: 10 !default;
+
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
-$btn-padding-x : 1rem !default;
-$btn-padding-y : .5rem !default;
-$btn-line-height : 1.25 !default;
-$btn-padding-x-lg : 1.5rem !default;
-$btn-padding-y-lg : .75rem !default;
-$btn-block-spacing-y : .5rem !default;
-$btn-toolbar-margin : .5rem !default;
+
+$btn-padding-x:             1rem !default;
+$btn-padding-y:             .5rem !default;
+$btn-line-height:           1.25 !default;
+
+$btn-padding-x-lg:          1.5rem !default;
+$btn-padding-y-lg:          .75rem !default;
+
+$btn-block-spacing-y:       .5rem !default;
+$btn-toolbar-margin:        .5rem !default;
+
 // Forms
-$input-padding-y : .5rem !default;
-$input-line-height : 1.25 !default;
-$input-border-color : rgba(0, 0, 0, .15) !default;
-$input-focus-border-color : #66afe9 !default;
-$input-focus-box-shadow : rgba(102, 175, 233, .6) !default;
-$input-placeholder-color : #999 !default;
-$input-padding-y-lg : .75rem !default;
-$input-padding-x-lg : 1.5rem !default;
-$custom-control-indicator-disabled-bg : #eee !default;
-$custom-control-label-disabled-color : #767676 !default;
-$custom-control-checked-indicator-color : #fff !default;
-$custom-control-checked-indicator-bg : #0074d9 !default;
-$custom-control-indicator-focus-box-shadow : 0 0 0 .075rem #fff,
-0 0 0 .2rem #0074d9 !default;
-$custom-control-indicator-active-color : #fff !default;
-$custom-control-indicator-active-bg : #84c6ff !default;
-$custom-checkbox-indicator-indeterminate-bg : #0074d9 !default;
-$custom-select-padding-y : .8rem !default;
-$custom-select-padding-x : 1rem !default;
-$custom-select-height : auto !default;
-$custom-select-line-height : 1.2 !default;
-$custom-select-border-width : 0 !default;
-$custom-file-height : 2.5rem !default;
-$custom-file-focus-box-shadow : 0 0 0 .075rem #fff,
-0 0 0 .2rem #0074d9 !default;
-$custom-file-padding-x : .5rem !default;
-$custom-file-padding-y : 1rem !default;
-$custom-file-color : #555 !default;
-$custom-file-bg : #fff !default;
-$custom-file-border-color : #ddd !default;
-$custom-file-box-shadow : inset 0 .2rem .4rem rgba(0, 0, 0, .05) !default;
-$custom-file-button-bg : #eee !default;
-$form-check-input-margin-y : .2rem !default;
+
+$input-padding-y:           .5rem !default;
+$input-line-height:         1.25 !default;
+
+$input-border-color:        rgba(0, 0, 0, .15) !default;
+
+$input-focus-border-color:  #66afe9 !default;
+$input-focus-box-shadow:    rgba(102, 175, 233, .6) !default;
+
+$input-placeholder-color:   #999 !default;
+
+$input-padding-y-lg:        .75rem !default;
+$input-padding-x-lg:        1.5rem !default;
+
+$custom-control-indicator-disabled-bg:          #eee !default;
+$custom-control-label-disabled-color:           #767676 !default;
+
+$custom-control-checked-indicator-color:        #fff !default;
+$custom-control-checked-indicator-bg:           #0074d9 !default;
+
+$custom-control-indicator-focus-box-shadow:     0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9 !default;
+
+$custom-control-indicator-active-color:         #fff !default;
+$custom-control-indicator-active-bg:            #84c6ff !default;
+
+$custom-checkbox-indicator-indeterminate-bg:    #0074d9 !default;
+
+$custom-select-padding-y:                       .8rem !default;
+$custom-select-padding-x:                       1rem !default;
+$custom-select-height:                          auto !default;
+$custom-select-line-height:                     1.2 !default;
+$custom-select-border-width:                    0 !default;
+
+$custom-file-height:                            2.5rem !default;
+$custom-file-focus-box-shadow:                  0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9 !default;
+
+$custom-file-padding-x:                         .5rem !default;
+$custom-file-padding-y:                         1rem !default;
+$custom-file-color:                             #555 !default;
+$custom-file-bg:                                #fff !default;
+$custom-file-border-color:                      #ddd !default;
+$custom-file-box-shadow:                        inset 0 .2rem .4rem rgba(0, 0, 0, .05) !default;
+$custom-file-button-bg:                         #eee !default;
+
+$form-check-input-margin-y:                     .2rem !default;
+
 // This allows us to at a glance determine relative layers of our application and prevents bugs
 // arrising from arbitrary z-index values. Do not edit the z-index scale! Only add application
 // scoped z-index values.
+
+
 // Z-Index Scale
 // --------------------------------------------------
-$zindex-0 : 990 !default;
-$zindex-1 : 1000 !default;
-$zindex-2 : 1020 !default;
-$zindex-3 : 1030 !default;
-$zindex-4 : 1040 !default;
-$zindex-5 : 1050 !default;
-$zindex-6 : 1060 !default;
-$zindex-7 : 1070 !default;
-$zindex-8 : 1080 !default;
-$zindex-9 : 1090 !default;
-$zindex-10 : 10000 !default;
+$zindex-0:                          990 !default;
+$zindex-1:                          1000 !default;
+$zindex-2:                          1020 !default;
+$zindex-3:                          1030 !default;
+$zindex-4:                          1040 !default;
+$zindex-5:                          1050 !default;
+$zindex-6:                          1060 !default;
+$zindex-7:                          1070 !default;
+$zindex-8:                          1080 !default;
+$zindex-9:                          1090 !default;
+$zindex-10:                         10000 !default;
+
 // Z-index master list
 //
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
-$zindex-dropdown : $zindex-1 !default;
-$zindex-fixed : $zindex-3 !default;
-$zindex-modal-backdrop : $zindex-7 !default;
-$zindex-modal : $zindex-8 !default;
-$zindex-popover : $zindex-10 !default;
-$zindex-sticky : $zindex-2 !default;
-$zindex-tooltip : $zindex-7 !default;
-$zindex-wrapper : $zindex-10 !default;
+
+$zindex-dropdown:                   $zindex-1 !default;
+$zindex-fixed:                      $zindex-3 !default;
+$zindex-modal-backdrop:             $zindex-7 !default;
+$zindex-modal:                      $zindex-8 !default;
+$zindex-popover:                    $zindex-10 !default;
+$zindex-sticky:                     $zindex-2 !default;
+$zindex-tooltip:                    $zindex-7 !default;
+$zindex-wrapper:                    $zindex-10 !default;
+
 // Navbar
-$navbar-background-color : check-color($brand-navbar-background-color, $gray-100) !default;
-$navbar-dark-color : check-color($brand-navbar-dark-color, $gray-600) !default;
-$navbar-dark-disabled-color : check-color($brand-navbar-dark-disabled-color, $gray-500) !default;
+$navbar-background-color:           $gray-100 !default;
+$navbar-dark-color:                 $gray-600 !default;
+$navbar-dark-disabled-color:        $gray-500 !default;
+
 // Navs
-$nav-link-padding-y : 1.3rem !default;
-$nav-link-hover-bg : check-color($brand-nav-link-hover-bg, $blue) !default;
-$nav-tabs-border-color : check-color($brand-nav-tabs-border-color, #ddd) !default;
+$nav-link-padding-y:                1.3rem !default;
+$nav-link-hover-bg:                 $primary !default;
+$nav-tabs-border-color:             #ddd !default;
+
 // Sidenavigation
-$nav-link-expandable-margin : 1.25rem !default;
+$nav-link-expandable-margin:        1.25rem !default;
+
 // Popovers
-$popover-max-width : 276px !default;
-$popover-max-width-md : 414px !default;
-$popover-max-width-lg : 552px !default;
-$popover-inner-padding : 1px !default;
+$popover-max-width:                 276px !default;
+$popover-max-width-md:              414px !default;
+$popover-max-width-lg:              552px !default;
+$popover-inner-padding:             1px !default;
+
 // Padding applied to the modal body
-$modal-dialog-margin : 0 !default;
-$modal-lg : 900px !default;
-$modal-md : 600px !default;
-$modal-sm : 300px !default;
+$modal-dialog-margin:               0 !default;
+
+$modal-lg:                          900px !default;
+$modal-md:                          600px !default;
+$modal-sm:                          300px !default;
+
 // Breadcrumbs
-$breadcrumb-padding-y : .5rem !default;
-$breadcrumb-bg : darken($gray-200, 2%) !default;
+$breadcrumb-padding-y:              .5rem !default;
+$breadcrumb-bg:                     darken($gray-200, 2%) !default;
+
 // Category
-$category-text-color : #fff !default;
+$category-text-color:               #fff !default;
+
 // Liveshopping
-$live-shopping-padding-x : .8rem !default;
-$live-shopping-padding-y : 1rem !default;
-$component-active-bg : $primary !default;
-$component-active-color : color-yiq($component-active-bg) !default;
+$live-shopping-padding-x:           .8rem !default;
+$live-shopping-padding-y:           1rem !default;
+
+$component-active-bg:               $primary !default;
+$component-active-color:            color-yiq($component-active-bg) !default;
+
 // quantity input
 $qty-box-width: 48px !default;
 $qty-box-btn-width: 24px !default;
@@ -379,8 +419,17 @@ $qty-box-padding-x: 0 !default;
 $qty-box-padding-y: 10px !default;
 $qty-box-border: $gray-400 !default;
 $qty-box-bg: $gray-200 !default;
+
 // Shopbuilder
-$shop-builder-colors: ( "primary" : $primary, "secondary" : $secondary, "success" : $success, "info" : $info, "warning" : $warning, "danger" : $danger) !default;
+$shop-builder-colors: (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger
+) !default;
+
 // ==========================================================================
 // External Libs
 // ==========================================================================
@@ -8630,7 +8679,6 @@ a.close.disabled {
 // Custom styles
 // ==========================================================================
 
-
 // global
 /// mimics the image-background: cover; behaviour but with img element
 ///
@@ -10862,7 +10910,7 @@ textarea.no-resize {
         position: absolute;
         top: 0;
         right: 0;
-        z-index: 99;
+        z-index: 90;
         cursor: pointer;
         border-color: transparent #f7f7f9 transparent transparent;
         border-style: solid;
@@ -11986,7 +12034,7 @@ html.crios {
     }
 
     .form-check input:checked + label {
-        @extend .text-success !optional;
+        @extend .text-success;
     }
 }
 
@@ -13102,7 +13150,13 @@ html.ie {
     }
 }
 
-//@import "Common/newsletter-widget";
+.widget-newsletter {
+    > .widget-inner {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
 .widget-text {
     &.widget {
         margin-bottom: 0;
@@ -13224,6 +13278,11 @@ html.safari .widget-grid .widget-inner-stacked .widget-inner { // stylelint-disa
     background-color: $breadcrumb-bg;
 }
 
+.language-detection {
+    z-index: 200 !important;
+    top: 0;
+}
+
 /* settings */
 $menu-link-color: $primary !default;
 $mobile-navigation-color: $primary !default;
@@ -13250,7 +13309,7 @@ $normalmenu-color: $primary !default;
 
 .navbar-brand {
     img {
-        max-height: 3rem;
+        max-height: 42px;
     }
 }
 
@@ -14328,6 +14387,8 @@ header .widget {
 }
 
 
+
+
 .checkout {
     .basket-items-list .item {
         padding-right: 0;
@@ -14489,25 +14550,6 @@ header .widget {
         }
     }
 
-    .dropdown-toggle {
-        &::after {
-            position: absolute;
-            top: 80%;
-            right: 1.5rem;
-            z-index: 1;
-            -webkit-transform: translateY(-50%);
-                    transform: translateY(-50%);
-        }
-    }
-
-    .items.open {
-        .dropdown-toggle {
-            border-bottom: none;
-            border-bottom-right-radius: 0; // stylelint-disable-line property-blacklist
-            border-bottom-left-radius: 0; // stylelint-disable-line property-blacklist
-        }
-    }
-
     .dropdown-menu {
         width: 100%;
         padding: 0;
@@ -14564,6 +14606,9 @@ header .widget {
         margin-bottom: 0;
         cursor: pointer;
 
+        @include media-breakpoint-down(xs) {
+            display: block;
+        }
     }
 
     .item-controls {
@@ -14571,13 +14616,6 @@ header .widget {
         display: -ms-flexbox;
         display: flex;
 
-        .item-edit .fa {
-            padding-top: .3rem;
-            padding-left: .1rem;
-        }
-        .item-remove .fa {
-            padding-top: .1rem;
-        }
         .fa {
             float: none;
             @include transition(all .2s ease-in-out);
@@ -14586,7 +14624,6 @@ header .widget {
             width: 2.2rem;
             height: 2.2rem;
             padding: 0;
-            margin-left: 5px;
         }
     }
 
@@ -14624,7 +14661,7 @@ header .widget {
         & button {
             width: 50px;
             min-width: auto !important; // stylelint-disable-line declaration-no-important
-            height: 74px;
+            height: 54px;
         }
     }
 
@@ -15390,279 +15427,3 @@ html.ie .confirmation-order-list .cmp-order-item {
 }
 
 
-// stylelint-disable
-
-body {
-    background-color: #fff;
-}
-
-.container-max {
-    max-width: 1400px;
-}
-
-.bg-header-special {
-    background-color:#802331 !important;
-    }
-    
-.logo-special {
-    width: 320px;
-    height: 64px;
-}
-    
-.logo-special {
-    max-width: 100%;
-    height: auto;
-}
-    
-.navbar-brand img {
-    max-height: 4rem !important;
-}
-    
-.mainmenu {
-    -webkit-box-pack: justify !important;
-        -ms-flex-pack: justify !important;
-            justify-content: space-between !important;
-}
-
-.bg-menu-special {
-    background-color:#eaeaea !important;
-}
-    
-.menu-special {background-color:#fff}
-    
-.main-navbar-collapsable .mainmenu>li>a {color:#b43c3e;background-color:#f0f0f0;
-    padding: 0.5rem !important;
-}
-.main-navbar-collapsable .mainmenu>li>a:hover {color:#0044cc;background-color:#fff}
-    
-.breadcrumbs, .breadcrumb {
-    background-color:#fff !important;
-}
-    
-.mobile-navigation .breadcrumb {
-    font-size: .8em;
-    background: #212529 !important;
-}
-    
-.custom-select {
-font-size:12px !important;
-padding:4px 24px 4px 8px;
-}
-
-.footer>.container-max {
-    max-width: 1370px;
-}
-
-.back-to-top {
-    margin-bottom: 2.5rem !important;
-}
-
-.back-to-top2 {
-    margin-bottom: 2rem !important;
-}
-
-
-.footer {
-    background-color: #fff;
-}
-
-.mwst-blende {
-    position: fixed;
-    bottom: 0;
-    z-index: 999;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding: 4px 0;
-    width: 100%;
-    height: 30px;
-    line-height: 24px;
-    font-size: 12px
-}
-
-.mwst-blende a {
-    color: #d1cfe8 !important;
-}
-
-.mwst-blende > a:hover {color:#b0add7 !important}
-
-.cmpboxrecall {bottom:2px !important}
-
-.top-bar {background-color:#441410 !important}
-// stylelint-disable
-
-#addressBookWidgetDiv,
-#walletWidgetDiv {
-    width: 100%;
-    height: 250px;
-}
-#shippingOptionsListWr ul {
-    padding: 0;
-}
-#shippingOptionsListWr li {
-    list-style: none;
-}
-.amz-checkout-box {
-    margin: 15px 0;
-}
-.amz-border-box {
-    border: 1px solid #bbb;
-    border-radius: 6px;
-    background: #fff;
-    padding: 1em;
-}
-.amz-border-box.with-mb {
-    margin-bottom: 15px;
-}
-.order-details-table {
-    float: right;
-}
-.amz-checkout-order-button-wr {
-    clear: right;
-    float: right;
-}
-#orderDetailsWr::after,
-.amz-border-box::after,
-.amz-checkout-order-button-wr::after,
-.order-details-table::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-.order-details-table dl {
-    display: inline-block;
-}
-.order-details-table dl dt {
-    float: left;
-    clear: both;
-    width: 200px;
-}
-.order-details-table dl dd {
-    float: right;
-    width: 200px;
-    text-align: right;
-}
-.order-items-table {
-    display: table;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-}
-.order-items-table .line {
-    display: table-row;
-}
-.order-items-table .line.head {
-    font-weight: 700;
-}
-.order-items-table .line > * {
-    display: table-cell;
-}
-.order-items-table .final-price,
-.order-items-table .price,
-.order-items-table .quantity {
-    text-align: right;
-    max-width: 150px;
-}
-.amzPayButton img {
-    max-width: 100%;
-}
-#add-item-to-basket-overlay .amzPayButton {
-    margin: 3px 15px 5px 0;
-    display: inline-block;
-    text-align: right;
-}
-#add-item-to-basket-overlay .amzPayButton img {
-    height: 2.5em;
-}
-.amz-checkout-order-button-wr.wallet-only {
-    margin: 1em 0;
-}
-.amz-loading {
-    height: 55px;
-    min-width: 55px;
-    background: url(data:image/gif;base64,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)
-        no-repeat center;
-}
-.amz-comment-textarea {
-    width: 100%;
-    height: 80px;
-}
-@media (max-width: 540px) {
-    #add-item-to-basket-overlay .item-confirm-special-case-blue {
-        position: static;
-    }
-}
-@media (max-width: 991px) {
-    .amzPayButton.articleCheckout {
-        width: 100%;
-        text-align: center;
-    }
-}
-@media (min-width: 992px) {
-    .amzPayButton.articleCheckout {
-        margin-left: 15px;
-    }
-}
-// stylelint-disable
-.con-reinit {
-        margin-top: 1rem;
-    }
-    .payment-confirmation-btn {
-        padding: 6px .5rem;
-        border-radius: 0.1rem;
-        color: white!important;
-        background-color: #7ED321;
-        cursor: pointer;
-    }
-    .payment-confirmation-btn:hover {
-        background-color: #569117;
-    }
-    .payment-confirmation-btn > span {
-        font-weight: normal;
-    }
-	
-.payPalSpinner.payPalLoading {
-        padding: 50px;
-        position: relative;
-        text-align: center;
-    }
-
-    .payPalSpinner.payPalLoading:before {
-        content: "";
-        height: 30px;
-        width: 30px;
-        margin: -15px auto auto -15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        border-width: 8px;
-        border-style: solid;
-        border-color: #2180c0 #ccc #ccc;
-        border-radius: 100%;
-        -webkit-animation: rotation .7s infinite linear;
-                animation: rotation .7s infinite linear;
-    }
-
-    @-webkit-keyframes rotation {
-        from {
-            -webkit-transform: rotate(0deg);
-                    transform: rotate(0deg);
-        } to {
-              -webkit-transform: rotate(359deg);
-                      transform: rotate(359deg);
-          }
-    }
-
-    @keyframes rotation {
-        from {
-            -webkit-transform: rotate(0deg);
-                    transform: rotate(0deg);
-        } to {
-              -webkit-transform: rotate(359deg);
-                      transform: rotate(359deg);
-          }
-    }

@@ -314,7 +314,7 @@
     }
 
     .form-check input:checked + label {
-        @extend .text-success !optional;
+        @extend .text-success;
     }
 }
 

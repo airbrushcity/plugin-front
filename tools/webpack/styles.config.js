@@ -10,7 +10,7 @@ module.exports = env =>
         mode: env.prod ? "production" : "development",
         entry: {
             base: "./resources/scss/base.scss",
-			base: "./resources/scss/item.scss",
+			item: "./resources/scss/item.scss",
             checkout: "./resources/scss/checkout.scss",
             icons: "./resources/scss/icons.scss",
             shopbuilder: "./resources/scss/shopbuilder.scss"

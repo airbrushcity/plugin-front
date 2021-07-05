@@ -2,7 +2,8 @@ const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const WebpackRequireFrom = require("webpack-require-from");
 
-module.exports = env => {
+module.exports = env =>
+{
     env = env || {};
     return {
         name: "scripts",
@@ -13,7 +14,7 @@ module.exports = env => {
         },
         output: {
             filename: "ceres-[name]" + (env.prod ? ".min" : "") + ".js",
-            chunkFilename: "chunks/ceres-[name]" + (env.prod ? ".min" : "") + ".js",
+            chunkFilename: "chunks/ceres-[name]"+ (env.prod ? ".min" : "") + ".js",
             path: path.resolve(__dirname, "..", "..", "resources/js/dist/")
         },
         resolve: {
@@ -23,7 +24,8 @@ module.exports = env => {
         },
         devtool: "source-map",
         module: {
-            rules: [{
+            rules: [
+                {
                     enforce: "pre",
                     test: /\.js$/,
                     exclude: /node_modules/,
@@ -35,7 +37,8 @@ module.exports = env => {
                 },
                 {
                     test: require.resolve("jquery"),
-                    use: [{
+                    use: [
+                        {
                             loader: "expose-loader",
                             options: "$"
                         },
