@@ -3,7 +3,7 @@
 namespace Front\Providers;
 
 use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
-use Plenty\Modules\Webshop\ItemSearch\Helpers:ResultFieldTemplate;
+use Plenty\Modules\Webshop\ItemSearch\Helpers\ResultFieldTemplate;
 use IO\Helper\TemplateContainer;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\ServiceProvider;
