@@ -3,10 +3,12 @@
 namespace Front\Providers;
 
 use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
+use Plenty\Modules\Webshop\ItemSearch\Helpers:ResultFieldTemplate;
 use IO\Helper\TemplateContainer;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Templates\Twig;
+
 
 class FrontServiceProvider extends TemplateServiceProvider
 {
@@ -55,6 +57,9 @@ class FrontServiceProvider extends TemplateServiceProvider
 		
 		// $this->overrideTemplate("Ceres::Widgets.Header.TopBarWidget", "Front::Widgets.Header.CustomTopBarWidget");	
 		// $this->overrideTemplate("Ceres::Widgets.Item.OrderPropertyWidget", "Front::Widgets.Item.CustomOrderPropertyWidget");	
+
+		$container = pluginApp(ResultFieldTemplate::class);
+		$container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM,'Front::ResultFields.ListItem');
 
     }
 }

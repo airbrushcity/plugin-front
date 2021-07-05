@@ -107,7 +107,7 @@
                     </add-to-basket>
 
                     <div class="vat small text-muted">
-                        ** Versandgewicht: {{ item.variation.WEIGHT_G }} Gramm. 
+                        ** Versandgewicht: {{ item.variation.weightG }} Gramm. 
                     </div>
                 </div>
             </slot>
