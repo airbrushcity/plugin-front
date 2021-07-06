@@ -51091,7 +51091,7 @@ var render = function() {
                 _c("div", { staticClass: "vat small text-muted" }, [
                   _vm._v(
                     "\n                    ** Versandgewicht: " +
-                      _vm._s(_vm.item.variation.weightG) +
+                      _vm._s(_vm.currentVariation.variation.weightG) +
                       " Gramm. \n                "
                   )
                 ])
