@@ -174,10 +174,6 @@ export default {
             return this.itemData || this.itemDataRef;
         },
 
-        currentVariation() {
-            return get(this.$store.state, `items[${this.itemId}].variation.documents[0].data`);
-        },
-
         /**
          * returns itemData.item.storeSpecial
          */
