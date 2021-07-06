@@ -331,6 +331,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     item: function item() {
       return this.itemData || this.itemDataRef;
     },
+    currentVariation: function currentVariation() {
+      return get(this.$store.state, "items[".concat(this.itemId, "].variation.documents[0].data"));
+    },
 
     /**
      * returns itemData.item.storeSpecial
