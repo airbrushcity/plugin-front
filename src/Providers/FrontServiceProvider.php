@@ -59,7 +59,6 @@ class FrontServiceProvider extends TemplateServiceProvider
 		// $this->overrideTemplate("Ceres::Widgets.Item.OrderPropertyWidget", "Front::Widgets.Item.CustomOrderPropertyWidget");	
 
 		$container = pluginApp(ResultFieldTemplate::class);
-		$container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM,'Front::ResultFields.ListItem');
-
+                $container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM,'Front::ResultFields.ListItem');
     }
 }
