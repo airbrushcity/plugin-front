@@ -107,7 +107,7 @@
                     </add-to-basket>
 
                     <div class="vat small text-muted">
-                        ** Versandgewicht: {{ item.variation.weightG }} Gramm. 
+                        ** Versandgewicht: {{ currentVariation.variation.weightG }} Gramm. 
                     </div>
                 </div>
             </slot>
@@ -172,6 +172,10 @@ export default {
         item()
         {
             return this.itemData || this.itemDataRef;
+        },
+
+        currentVariation() {
+            return get(this.$store.state, `items[${this.itemId}].variation.documents[0].data`);
         },
 
         /**
