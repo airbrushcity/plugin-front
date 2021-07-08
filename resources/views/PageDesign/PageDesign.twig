@@ -206,5 +206,12 @@
     <input type="hidden" id="csrf-token" value="{{ csrf_token() }}">
 {% endif %}
 
+{% if services.template.getCurrentTemplate() == 'tpl.confirmation' %}
+<script>
+var GtagKaufpreis = {{ data.order.amounts[0].netTotal }};
+var GtagBestellnummer = {{ orderData.order.id }};
+</script>
+{% endif %}
+
 </body>
 </html>
