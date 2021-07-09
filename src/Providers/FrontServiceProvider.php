@@ -30,7 +30,7 @@ class FrontServiceProvider extends TemplateServiceProvider
 		$this->overrideTemplate("Ceres::PageDesign.Partials.Footer", "Front::PageDesign.Partials.Footer");
 		$this->overrideTemplate("Ceres::PageDesign.Partials.PageMetadata", "Front::PageDesign.Partials.PageMetadata");
 		$this->overrideTemplate("Ceres::PageDesign.Partials.Header.Header", "Front::PageDesign.Partials.Header.Header");
-                $this->overrideTemplate("Ceres::PageDesign.Partials.PaginationTemplate", "Front::PageDesign.Partials.PaginationTemplate");
+        $this->overrideTemplate("Ceres::PageDesign.Partials.PaginationTemplate", "Front::PageDesign.Partials.PaginationTemplate");
 		$this->overrideTemplate("Ceres::PageDesign.Partials.Header.Breadcrumb", "Front::PageDesign.Partials.Header.Breadcrumb");
 		$this->overrideTemplate("Ceres::PageDesign.Partials.Header.DefaultHeader.twig", "Front::PageDesign.Partials.Header.DefaultHeader");
 		$this->overrideTemplate("Ceres::PageDesign.Partials.Header.Navigation", "Front::PageDesign.Partials.Header.Navigation");
@@ -55,10 +55,12 @@ class FrontServiceProvider extends TemplateServiceProvider
 		$this->overrideTemplate("Ceres::StaticPages.PrivacyPolicy", "Front::StaticPages.PrivacyPolicy");
 		$this->overrideTemplate("Ceres::StaticPages.TermsAndConditions", "Front::StaticPages.TermsAndConditions");
 		
+		$this->overrideTemplate("Ceres::Checkout.OrderDetails", "Front::Checkout.OrderDetails");
+		
 		// $this->overrideTemplate("Ceres::Widgets.Header.TopBarWidget", "Front::Widgets.Header.CustomTopBarWidget");	
 		// $this->overrideTemplate("Ceres::Widgets.Item.OrderPropertyWidget", "Front::Widgets.Item.CustomOrderPropertyWidget");	
 
 		$container = pluginApp(ResultFieldTemplate::class);
-                $container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM,'Front::ResultFields.ListItem');
+        $container->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM,'Front::ResultFields.ListItem');
     }
 }
