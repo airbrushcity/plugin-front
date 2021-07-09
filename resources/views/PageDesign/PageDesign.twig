@@ -13,11 +13,17 @@
     {% set minSuffix = '' %}
 {% endif %}
 {% if assetName == 'ceres-checkout' %}
+{#
 {% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".css?v=" ~ buildHash %}
+#}
+{% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout.micro.css?v=" ~ buildHash %}
 {% set checkoutSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
 <link rel="stylesheet" href="{{ checkoutCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path("Front") }}" data-sass-original="{{ checkoutSCSS }}"{% endif %}>
 {% else %}
+{#
 {% set defaultCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ minSuffix ~ ".css?v=" ~ buildHash %}
+#}
+{% set defaultCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base.micro.css?v=" ~ buildHash %}
 {% set defaultSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
 <link rel="stylesheet" href="{{ defaultCSS }}"{% if isShopBuilder %} data-sass-root="{{ config("Front.Settings.CdnPluginUrl") }}" data-sass-original="{{ defaultSCSS }}"{% endif %}>
 {% endif %}
@@ -44,10 +50,6 @@
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}
 <!-- Google Tag Manager -->
 <script>
-{% if services.template.getCurrentTemplate() == 'tpl.confirmation' %}
-var GtagKaufpreis = {{ data.order.amounts[0].netTotal }};
-var GtagBestellnummer = {{ orderData.order.id }};
-{% endif %}
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
