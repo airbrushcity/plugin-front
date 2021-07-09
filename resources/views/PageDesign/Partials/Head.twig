@@ -23,9 +23,15 @@
 {% if customFont.boldItalic %}@font-face {font-family: "Custom-Font";src: url("{{ customFont.boldItalic }}");font-weight: bold;font-style: italic;}{% endif %}
 </style>
 {% set iconCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-icons.css" %}
+{#
 {% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ min2Suffix ~ ".css?v=" ~ buildHash %}
+#}
+{% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout.micro.css?v=" ~ buildHash %}
 {% set checkoutSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ min2Suffix ~ ".scss?v=" ~ buildHash %}
+{#
 {% set defaultCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ min2Suffix ~ ".css?v=" ~ buildHash %}
+#}
+{% set defaultCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base.micro.css?v=" ~ buildHash %}
 {% set defaultSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-base" ~ min2Suffix ~ ".scss?v=" ~ buildHash %}
 {% endspaceless %}
 
