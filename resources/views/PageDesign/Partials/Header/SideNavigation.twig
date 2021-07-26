@@ -4,7 +4,3 @@
 {% set categoryBreadcrumbs = services.category.getHierarchy() %}
 
 {{ Tree.get_sidemenu(categoryBreadcrumbs, categories, "", spacingPadding, inlinePadding, showItemCount, expandableChildren, customEntries) }}
-
-{#
-<desktop-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></desktop-navigation>
-#}
