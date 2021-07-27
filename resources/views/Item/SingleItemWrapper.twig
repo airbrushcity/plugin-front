@@ -109,7 +109,18 @@
         {# Shopbuilder template #}
         <div class="single container-max page-content">
             <div class="row">
-                <div class="col">
+            
+            {% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}
+                <div class="col-3 d-none d-lg-block">
+                    <div class="sidebar-categories">
+                        <div class="category-title">{{ trans("Ceres::Template.itemCategories") }}</div>
+                        {{ include('Front::PageDesign.Partials.Header.SideNavigation.twig') }}
+                    </div>
+                    {{ LayoutContainer.show("Front::CategoryItem.SideNavBarBottom") }}
+                </div>
+            {% endif %}
+            
+                <div class="col-12 col-lg-{% if category is defined and ceresConfig.header.showNavBars in ["side", "both"] %}9{% else %}12{% endif %}">
                     <single-item
                         v-cloak
                         item-data="{{ item | json_data }}"
