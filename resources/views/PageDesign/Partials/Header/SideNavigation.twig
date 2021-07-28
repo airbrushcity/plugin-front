@@ -5,10 +5,12 @@
 {{ Tree.get_sidemenu(categoryBreadcrumbs, categories, "", spacingPadding, inlinePadding, showItemCount, expandableChildren, customEntries) }}
 #}
 
+{#
 <script2>
 document.querySelector(".mobile-navigation").classList.add("open");
 document.querySelector("body").classList.add("menu-is-visible");
 </script2>
+#}
 
 <lazy-hydrate when-idle>
     <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
