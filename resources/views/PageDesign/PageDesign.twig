@@ -37,6 +37,8 @@
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
+{% block PartialNext %}
+{% endblock %}
 </head>
 
 <body class="bg-header-image {{ bodyClasses | join(' ') }}">

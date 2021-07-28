@@ -35,7 +35,9 @@
     {% elseif services.template.isCurrentTemplate('tpl.home.category') %}
         {% set initialCategory = null %}
     {% endif %}
+    {#
     <lazy-hydrate when-idle>
         <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
     </lazy-hydrate>
+    #}
 </div>

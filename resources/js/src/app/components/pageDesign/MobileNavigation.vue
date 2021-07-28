@@ -1,7 +1,7 @@
 <template>
-    <div class="mobile-navigation">
+    <div class="mobile-navigation desktop-navigation">
         <div v-show="isNavigationInitialized">
-            <ul class="breadcrumb d-block px-3 py-0">
+            <ul class="breadcrumb d-block px-3 py-0 not-desktop">
                 <li class="btn-close" @click="closeNavigation()"></li>
 
                 <li class="breadcrumb-item" @click="slideTo(null, true)">
@@ -64,7 +64,7 @@
         </div>
 
         <template v-if="!isNavigationInitialized">
-            <ul class="breadcrumb">
+            <ul class="breadcrumb not-desktop">
                 <li class="btn-close" @click="closeNavigation()"></li>
 
                 <li class="breadcrumb-item">
@@ -93,7 +93,7 @@ export default {
         initialCategory: Object,
         breakpoints: {
             type: Array,
-            default: () => ["xs", "sm", "md"]
+            default: () => ["xs", "sm", "md" , "lg" , "xl" ]
         },
         includeLanguage: Boolean
     },
