@@ -1,8 +1,8 @@
 <template>
     <div class="mobile-navigation desktop-navigation">
         <div v-show="isNavigationInitialized">
-            <ul class="breadcrumb d-block px-3 py-0 not-desktop">
-                <li class="btn-close" @click="closeNavigation()"></li>
+            <ul class="breadcrumb d-block px-3 py-0">
+                <li class="btn-close not-desktop" @click="closeNavigation()"></li>
 
                 <li class="breadcrumb-item" @click="slideTo(null, true)">
                     <i class="fa fa-home" aria-hidden="true"></i>
@@ -43,7 +43,6 @@
                         <i class="fa fa-lg fa-level-up" aria-hidden="true"></i>
                     </span>
                 </li>
-
                 <li  class="ddown" v-for="category in dataContainer2.categories">
                     <a :href="getCategoryUrl(category.url)">{{ category.details[0].name }}</a>
                     <span class="nav-direction" v-if="category.childCount" @click="slideTo(category)">
@@ -64,8 +63,8 @@
         </div>
 
         <template v-if="!isNavigationInitialized">
-            <ul class="breadcrumb not-desktop">
-                <li class="btn-close" @click="closeNavigation()"></li>
+            <ul class="breadcrumb">
+                <li class="btn-close not-desktop" @click="closeNavigation()"></li>
 
                 <li class="breadcrumb-item">
                     <i class="fa fa-home" aria-hidden="true"></i>

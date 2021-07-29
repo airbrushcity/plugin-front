@@ -2072,7 +2072,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 
@@ -37575,10 +37574,10 @@ var render = function() {
         [
           _c(
             "ul",
-            { staticClass: "breadcrumb d-block px-3 py-0 not-desktop" },
+            { staticClass: "breadcrumb d-block px-3 py-0" },
             [
               _c("li", {
-                staticClass: "btn-close",
+                staticClass: "btn-close not-desktop",
                 on: {
                   click: function($event) {
                     return _vm.closeNavigation()
@@ -37806,9 +37805,9 @@ var render = function() {
       _vm._v(" "),
       !_vm.isNavigationInitialized
         ? [
-            _c("ul", { staticClass: "breadcrumb not-desktop" }, [
+            _c("ul", { staticClass: "breadcrumb" }, [
               _c("li", {
-                staticClass: "btn-close",
+                staticClass: "btn-close not-desktop",
                 on: {
                   click: function($event) {
                     return _vm.closeNavigation()
