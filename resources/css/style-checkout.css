@@ -12451,13 +12451,18 @@ header .widget {
   .desktop-navigation {
     position: relative; }
   .not-desktop {
-    display: none; } }
+    display: none; }
+  .mobile-navigation {
+    position: relative; }
+  .desktop-navigation {
+    transform: translateX(0%) !important;
+    opacity: 1; } }
 
-@media (min-width: 1430px) {
+@media (min-width: 1432px) {
   .container-max {
     max-width: 1430px; } }
 
-@media (min-width: 1920px) {
+@media (min-width: 1922px) {
   .container-max {
     max-width: 1680px; } }
 
