@@ -52909,7 +52909,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mobile-navigation desktop-navigation" },
+    { staticClass: "mobile-navigation" },
     [
       _vm._ssrNode(
         "<div" +
@@ -52920,7 +52920,7 @@ var render = function() {
         "</div>",
         [
           _vm._ssrNode(
-            '<ul class="breadcrumb d-block px-3 py-0"><li class="btn-close not-desktop"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' +
+            '<ul class="breadcrumb d-block px-3 py-0 not-desktop"><li class="btn-close not-desktop"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' +
               _vm._ssrList(_vm.breadcrumbs, function(breadcrumb) {
                 return (
                   '<li class="breadcrumb-item">' +

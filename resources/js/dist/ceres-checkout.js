@@ -46634,7 +46634,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mobile-navigation desktop-navigation" },
+    { staticClass: "mobile-navigation" },
     [
       _c(
         "div",
@@ -46651,7 +46651,7 @@ var render = function() {
         [
           _c(
             "ul",
-            { staticClass: "breadcrumb d-block px-3 py-0" },
+            { staticClass: "breadcrumb d-block px-3 py-0 not-desktop" },
             [
               _c("li", {
                 staticClass: "btn-close not-desktop",

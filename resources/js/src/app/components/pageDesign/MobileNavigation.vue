@@ -1,7 +1,7 @@
 <template>
-    <div class="mobile-navigation desktop-navigation">
+    <div class="mobile-navigation">
         <div v-show="isNavigationInitialized">
-            <ul class="breadcrumb d-block px-3 py-0">
+            <ul class="breadcrumb d-block px-3 py-0 not-desktop">
                 <li class="btn-close not-desktop" @click="closeNavigation()"></li>
 
                 <li class="breadcrumb-item" @click="slideTo(null, true)">
