@@ -1,8 +1,12 @@
-@media (min-width: 992px) {.desktop-navigation {position:relative
-
-} .not-desktop {display:none}} 
-@media (min-width: 1430px) {.container-max {max-width: 1430px;}} 
-@media (min-width: 1920px) {.container-max {max-width: 1680px;}}
+@media (min-width: 992px) 
+{
+    .desktop-navigation, .mobile-navigation {position:relative !important} 
+    .desktop-navigation {transform: translateX(-0%) !important;opacity:1}
+    .mobile-navigation .mainmenu {position: relative !important;}
+    .not-desktop {display:none !important}
+} 
+@media (min-width: 1432px) {.container-max {max-width: 1430px;}} 
+@media (min-width: 1922px) {.container-max {max-width: 1680px;}}
 
 .bg-header-special {
     background-color:#802331 !important;

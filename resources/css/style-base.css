@@ -12438,15 +12438,15 @@ header .widget {
   font-size: 85%; }
 
 @media (min-width: 992px) {
-  .desktop-navigation {
-    position: relative; }
-  .not-desktop {
-    display: none; }
-  .mobile-navigation {
-    position: relative; }
+  .desktop-navigation, .mobile-navigation {
+    position: relative !important; }
   .desktop-navigation {
     transform: translateX(0%) !important;
-    opacity: 1; } }
+    opacity: 1; }
+  .mobile-navigation .mainmenu {
+    position: relative !important; }
+  .not-desktop {
+    display: none !important; } }
 
 @media (min-width: 1432px) {
   .container-max {
