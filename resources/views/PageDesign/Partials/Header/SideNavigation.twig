@@ -3,9 +3,12 @@
 </lazy-hydrate>
 
 <script2>
-if (window.innerWidth > 992) {
-   document.querySelector(".mobile-navigation").classList.add("open");
-   document.querySelector("body").classList.add("menu-is-visible");
-   }
-else {}
+const DeskMenu = document.querySelector('.not-desktop');
+if (DeskMenu === document.activeElement) {
+    document.querySelector(".mobile-navigation").classList.add("open");
+    document.querySelector("body").classList.add("menu-is-visible");
+    console.log('Desktop Menü sichtbar');
+} else {
+    console.log('Desktop Menü nicht sichtbar');
+}
 </script2>
