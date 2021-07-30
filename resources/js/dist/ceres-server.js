@@ -12819,6 +12819,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -12833,7 +12834,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md", "lg", "xl"];
+        return ["xs", "sm", "md"];
       }
     },
     includeLanguage: Boolean
@@ -52920,7 +52921,7 @@ var render = function() {
         "</div>",
         [
           _vm._ssrNode(
-            '<ul class="breadcrumb d-block px-3 py-0 not-desktop"><li class="btn-close not-desktop"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' +
+            '<ul class="breadcrumb d-block px-3 py-0"><li class="btn-close"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li> ' +
               _vm._ssrList(_vm.breadcrumbs, function(breadcrumb) {
                 return (
                   '<li class="breadcrumb-item">' +
@@ -53070,7 +53071,7 @@ var render = function() {
       !_vm.isNavigationInitialized
         ? [
             _vm._ssrNode(
-              '<ul class="breadcrumb"><li class="btn-close not-desktop"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li></ul> '
+              '<ul class="breadcrumb"><li class="btn-close"></li> <li class="breadcrumb-item"><i aria-hidden="true" class="fa fa-home"></i></li></ul> '
             ),
             _c("loading-animation")
           ]

@@ -2072,6 +2072,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 
 
@@ -2086,7 +2087,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md", "lg", "xl"];
+        return ["xs", "sm", "md"];
       }
     },
     includeLanguage: Boolean
@@ -37574,10 +37575,10 @@ var render = function() {
         [
           _c(
             "ul",
-            { staticClass: "breadcrumb d-block px-3 py-0 not-desktop" },
+            { staticClass: "breadcrumb d-block px-3 py-0" },
             [
               _c("li", {
-                staticClass: "btn-close not-desktop",
+                staticClass: "btn-close",
                 on: {
                   click: function($event) {
                     return _vm.closeNavigation()
@@ -37807,7 +37808,7 @@ var render = function() {
         ? [
             _c("ul", { staticClass: "breadcrumb" }, [
               _c("li", {
-                staticClass: "btn-close not-desktop",
+                staticClass: "btn-close",
                 on: {
                   click: function($event) {
                     return _vm.closeNavigation()

@@ -12447,30 +12447,11 @@ header .widget {
 .page-wish-list .item-additional-information .badge {
   font-size: 85%; }
 
-@media (min-width: 992px) {
-  .mobile-navigation {
-    position: relative !important;
-    transform: translateX(0%) !important;
-    opacity: 1;
-    font-size: 1em !important;
-    background-color: #f0f0f0;
-    color: #04c; }
-  .mobile-navigation .mainmenu {
-    position: relative !important; }
-  .not-desktop {
-    display: none !important; }
-  .mobile-navigation .mainmenu li a {
-    padding-top: .5rem !important;
-    padding-bottom: .5rem !important; }
-  .mobile-navigation .nav-direction {
-    padding-top: .5rem !important;
-    padding-bottom: .5rem !important; } }
-
-@media (min-width: 1432px) {
+@media (min-width: 1430.02px) {
   .container-max {
     max-width: 1430px; } }
 
-@media (min-width: 1922px) {
+@media (min-width: 1920.02px) {
   .container-max {
     max-width: 1680px; } }
 
