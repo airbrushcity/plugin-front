@@ -1,5 +1,5 @@
 <template>
-    <div class="desktop-navigation mobile-navigation">
+    <div class="mobile-navigation">
         <div v-show="isNavigationInitialized">
             <ul class="not-desktop breadcrumb d-block px-3 py-0">
                 <li class="btn-close" @click="closeNavigation()"></li>
