@@ -1,5 +1,6 @@
-@media (min-width: 1430.02px) {.container-max {max-width: 1430px;}} 
-@media (min-width: 1920.02px) {.container-max {max-width: 1680px;}}
+body {background-color:#fff !important;}
+@media (min-width: 1430.02px) {.container-max {max-width: 1400px;}} 
+@media (min-width: 1920.02px) {.container-max {max-width: 1650px;}}
 
 .bg-header-special {
     background-color:#802331 !important;
@@ -38,13 +39,36 @@
     background-color:#fff !important;
 }
     
+.custom-select {
+font-size:12px !important;
+}
+
+.top-bar {background-color:#441410 !important}
+
+.list-controls-inner {background-color:#efefef !important}
+
+.list-controls-inner > div {padding: .25rem !important; }
+
+.mobile-navigation {background-color:#f0f0f0;color:#04c}
+
 .mobile-navigation .breadcrumb {
     font-size: .8em;
     background: #212529 !important;
 }
-    
-.custom-select {
-font-size:12px !important;
+
+@media (min-width: 992.02px) {
+    .mobile-menu {position:relative !important;
+    transform: translateX(0%) !important;
+    opacity:1;}
+    .mobile-navigation .mainmenu {position: relative !important;}
+    .not-desktop {display:none !important}
+}
+
+@media (max-width: 992px) {
+    .mobile-menu {position: absolute;
+    transform: translateX(100%) !important;
+    opacity:.6;}
+    .mobile-navigation .mainmenu {position: absolute !important;}
 }
 
 .footer>.container-max {
@@ -88,9 +112,3 @@ font-size:12px !important;
 .mwst-blende > a:hover {color:#b0add7 !important}
 
 .cmpboxrecall {bottom:2px !important}
-
-.top-bar {background-color:#441410 !important}
-
-.list-controls-inner {background-color:#efefef !important}
-
-.list-controls-inner > div {padding: .25rem !important; }
