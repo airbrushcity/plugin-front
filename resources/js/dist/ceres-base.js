@@ -2087,7 +2087,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     breakpoints: {
       type: Array,
       default: function _default() {
-        return ["xs", "sm", "md"];
+        return ["xs", "sm", "md", "lg", "xl"];
       }
     },
     includeLanguage: Boolean
@@ -37575,7 +37575,7 @@ var render = function() {
         [
           _c(
             "ul",
-            { staticClass: "breadcrumb d-block px-3 py-0" },
+            { staticClass: "not-desktop breadcrumb d-block px-3 py-0" },
             [
               _c("li", {
                 staticClass: "btn-close",
@@ -37806,7 +37806,7 @@ var render = function() {
       _vm._v(" "),
       !_vm.isNavigationInitialized
         ? [
-            _c("ul", { staticClass: "breadcrumb" }, [
+            _c("ul", { staticClass: "not-desktop breadcrumb" }, [
               _c("li", {
                 staticClass: "btn-close",
                 on: {
