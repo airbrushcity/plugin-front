@@ -13,8 +13,10 @@ var isInViewport = function (elem) {
     );
 };
 var desktop = document.querySelector('.desktop-menu');
-if (!isInViewport(desktop)) {}
-   else {
-      document.querySelector(".mobile-navigation").classList.add("open");
-   }
+if (isInViewport(desktop)) {
+    document.querySelector(".mobile-navigation").classList.add("open");
+    }
+else {
+    document.querySelector(".mobile-navigation").classList.remove("open");
+    }
 </script2>
