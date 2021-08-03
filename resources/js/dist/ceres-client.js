@@ -38776,7 +38776,7 @@ var render = function() {
         [
           _c(
             "ul",
-            { staticClass: "not-desktop breadcrumb d-block px-3 py-0" },
+            { staticClass: "breadcrumb d-block px-3 py-0 d-lg-none" },
             [
               _c("li", {
                 staticClass: "btn-close",
@@ -39007,7 +39007,7 @@ var render = function() {
       _vm._v(" "),
       !_vm.isNavigationInitialized
         ? [
-            _c("ul", { staticClass: "not-desktop breadcrumb" }, [
+            _c("ul", { staticClass: "breadcrumb d-lg-none" }, [
               _c("li", {
                 staticClass: "btn-close",
                 on: {
