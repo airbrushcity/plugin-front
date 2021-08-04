@@ -68,7 +68,15 @@
 
     {% include getPartial('footer') %}
     {% block PartialFooter %}{% endblock %}
-
+    
+    <div class="row">
+        <div class="header-fw">
+            <div class="top-bar mwst-blende">
+	        <span>&#42; Alle Preise inkl. Mwst &nbsp;</span>
+	        <a href="/zahlung-und-versand">zuzüglich Versandkosten</a>
+	    </div>
+	</div>
+    
     <!-- BASKET MODAL -->
     <lazy-load component="add-item-to-basket-overlay">
         <add-item-to-basket-overlay>
