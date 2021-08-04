@@ -198,6 +198,14 @@
 
 <script>
     {% if request.get("show") == "forgotPassword" %}window.ceresStore.dispatch("loadComponent", "forgot-password-modal"){% endif %}
+
+    const width  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if width >= 992 {
+        document.querySelector(".mobile-navigation").classList.add("open");
+        document.querySelector("body").classList.add("menu-is-visible");
+        }
+        
+    
 </script>
 
 {{ get_filtered_tags() }}
