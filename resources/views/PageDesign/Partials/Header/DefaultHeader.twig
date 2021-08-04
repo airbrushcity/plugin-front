@@ -19,12 +19,9 @@
 				    <ul class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
 									
 					<li class="list-inline-item dropdown ml-3 p-2">
-					    <i class="fa fa-info-circle">
-					    <a href="#" data-toggle="tooltip" data-placement="right" title="Airbrush City"></a>
-					    </i> 
+					    <i class="fa fa-info-circle" rel="tooltip" title="Airbrush City"></i>
 					</li>
 									    
-				
 				        <li class="list-inline-item control-user d-md-none">
                                             {% if services.authentication.isLoggedIn() == true %}
                                                 <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
