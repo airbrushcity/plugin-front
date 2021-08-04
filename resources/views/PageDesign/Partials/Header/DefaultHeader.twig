@@ -17,11 +17,7 @@
 							
                                 <div class="controls">
 				    <ul class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
-									
-					<li class="list-inline-item dropdown ml-3 p-2">
-					    <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="Airbrush City"></i>
-					</li>
-									    
+																    
 				        <li class="list-inline-item control-user d-md-none">
                                             {% if services.authentication.isLoggedIn() == true %}
                                                 <a href="/my-account" class="nav-link" aria-label="{{ trans('Ceres::Template.myAccount') }}">
@@ -46,6 +42,10 @@
 						    </wish-list-count>
 						</li>
 					{% endif %}
+					
+					<li class="list-inline-item dropdown p-2 ml-3">
+					    <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="Airbrush City"></i>
+					</li>
 
 					<li class="list-inline-item control-basket d-md-none position-relative">
 					    <a href="/warenkorb" class="toggle-basket-preview nav-link">
