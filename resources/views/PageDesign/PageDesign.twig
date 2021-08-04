@@ -69,6 +69,11 @@
     {% include getPartial('footer') %}
     {% block PartialFooter %}{% endblock %}
     
+    <div class="w-100 top-bar">
+        <span>&#42; Alle Preise inkl. Mwst &nbsp;</span>
+        <a href="/zahlung-und-versand">zuzüglich Versandkosten</a>
+    </div>
+
     <!-- BASKET MODAL -->
     <lazy-load component="add-item-to-basket-overlay">
         <add-item-to-basket-overlay>
@@ -89,11 +94,6 @@
     </lazy-load>
     <!-- ./PASSWORD RESET MODAL -->
 
-</div>
-
-<div class="w-100 top-bar mwst-blende">
-    <span>&#42; Alle Preise inkl. Mwst &nbsp;</span>
-    <a href="/zahlung-und-versand">zuzüglich Versandkosten</a>
 </div>
 <!-- /SSR -->
 
