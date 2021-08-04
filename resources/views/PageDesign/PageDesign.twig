@@ -198,7 +198,7 @@
 
 <script>
    {% if request.get("show") == "forgotPassword" %}window.ceresStore.dispatch("loadComponent", "forgot-password-modal"){% endif %}
-   const fenster  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+   var fenster  = window.innerWidth;
    if fenster >= 992 {
         document.querySelector(".mobile-navigation").classList.add("open");
         document.querySelector("body").classList.add("menu-is-visible");
