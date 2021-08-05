@@ -17,7 +17,7 @@
                     "required": false,
                     "label": "CDN Plugin URL",
                     "options": {
-                        "defaultValue": "https://image.airbrush-city.de/zi6ae0fjhcun/plugin/51/front/"
+                        "defaultValue": "https://image.airbrush-city.de/plugin/54/front"
                     }
                 },
                 "Settings.CdnImageUrl": {
@@ -25,7 +25,7 @@
                     "required": false,
                     "label": "CDN Image URL",
                     "options": {
-                        "defaultValue": "https://image.modellbau-city.com/frontend/"
+                        "defaultValue": "https://image.airbrush-city.de/frontend"
                     }
                 },
                 "Settings.ConsentmanagerID": {
@@ -47,7 +47,7 @@
                     "scss": true,
                     "label": "Config.brandPrimaryLabel",
                     "options": {
-                        "defaultValue": "#008ebd"
+                        "defaultValue": "#0044cc"
                     }
                 },
                 "brand-secondary": {
@@ -56,149 +56,185 @@
                     "scss": true,
                     "label": "Config.brandSecondaryLabel",
                     "options": {
-                        "defaultValue": "#d4021d"
+                        "defaultValue": "#b43c3e"
                     }
-                },
-                "brand-light": {
+                }
+                "brand-success": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandLightLabel",
+                    "label": "Config.brandSuccessLabel",
+                    "options": {
+                        "defaultValue": "#28a745"
+                    }
+                },
+                "brand-info": {
+                    "type": "colorPicker",
+                    "required": false,
+                    "scss": true,
+                    "label": "Config.brandInfoLabel",
+                    "options": {
+                        "defaultValue": "#17a2b8"
+                    }
+                },
+                "brand-warning": {
+                    "type": "colorPicker",
+                    "required": false,
+                    "scss": true,
+                    "label": "Config.brandWarningLabel",
+                    "options": {
+                        "defaultValue": "#ffc107"
+                    }
+                },
+                "brand-danger": {
+                    "type": "colorPicker",
+                    "required": false,
+                    "scss": true,
+                    "label": "Config.brandDangerLabel",
+                    "options": {
+                        "defaultValue": "#dc3545"
+                    }
+                },
+                "p-light": {
+                    "type": "colorPicker",
+                    "required": false,
+                    "scss": true,
+                    "label": "Light BG",
                     "options": {
                         "defaultValue": "#f8f9fa"
                     }
                 },
-                "brand-dark": {
+                "p-dark": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandDarkLabel",
+                    "label": "Dark BG",
                     "options": {
                         "defaultValue": "#343a40"
                     }
                 },
-                "brand-yiq-text-dark": {
+                "p-yiq-text-dark": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandYiqTextDarkLabel",
+                    "label": "Text Dark",
                     "options": {
                         "defaultValue": "#212529"
                     }
                 },
-                "brand-yiq-text-light": {
+                "p-yiq-text-light": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandYiqTextLightLabel",
+                    "label": "Text Light",
                     "options": {
                         "defaultValue": "#fff"
                     }
                 },
-                "brand-body-bg": {
+                "p-body-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandBodyBgLabel",
+                    "label": "Body BG",
                     "options": {
                         "defaultValue": "#f8f9fa"
                     }
                 },
-                "brand-top-bar-bg": {
+                "p-top-bar-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandTopBarBgLabel",
+                    "label": "Top Bar BG",
                     "options": {
-                        "defaultValue": "#495057"
+                        "defaultValue": "#441410"
                     }
                 },
-                "brand-top-bar-basket-btn": {
+                "p-basket-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
                     "label": "Basket BG",
                     "options": {
-                        "defaultValue": "#008ebd"
+                        "defaultValue": "#d1cfe8"
                     }
                 },
-                "brand-footer-bg": {
+                "p-footer-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
                     "label": "Footer BG",
                     "options": {
-                        "defaultValue": "#f8f9fa"
+                        "defaultValue": "#802331"
                     }
                 },
-                "brand-footer-color": {
+                "p-footer-text": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandFooterColorLabel",
+                    "label": "Footer Text",
                     "options": {
                         "defaultValue": "#212529"
                     }
                 },
-                "brand-footer-features-bg": {
+                "p-footer-features-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandFooterFeaturesBgLabel",
+                    "label": "Footer Features BG",
                     "options": {
                         "defaultValue": "#e9ecef"
                     }
                 },
-                "brand-footer-features-color": {
+                "p-footer-features-text": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandFooterColorLabel",
+                    "label": "Footer Features Text",
                     "options": {
                         "defaultValue": "#212529"
                     }
                 },
-                "brand-navbar-background-color": {
+                "p-navbar-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandNavbarBackgroundColorLabel",
+                    "label": "Navbar BG",
                     "options": {
                         "defaultValue": "#f8f9fa"
                     }
                 },
-                "brand-navbar-dark-color": {
+                "p-navbar-dark-text": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandNavbarDarkColorLabel",
+                    "label": "Navbar Dark Text",
                     "options": {
                         "defaultValue": "#6c757d"
                     }
                 },
-                "brand-navbar-dark-disabled-color": {
+                "p-navbar-dark-text-off": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandNavbarDarkDisabledColorLabel",
+                    "label": "Navbar Dark Text Disabled",
                     "options": {
                         "defaultValue": "#adb5bd"
                     }
                 },
-                "brand-nav-link-hover-bg": {
+                "p-nav-link-hover-bg": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandNavLinkHoverBgLabel",
+                    "label": "Nav Link Hover BG",
                     "options": {
                         "defaultValue": "#008ebd"
                     }
                 },
-                "brand-nav-tabs-border-color": {
+                "p-nav-tabs-border": {
                     "type": "colorPicker",
                     "required": false,
                     "scss": true,
-                    "label": "Config.brandNavTabsBordrColorLabel",
+                    "label": "Nav Tabs Border",
                     "options": {
                         "defaultValue": "#ddd"
                     }
@@ -241,42 +277,6 @@
                     "label": "Custom Schriftart",
                     "options": {
                         "defaultValue": ""
-                    }
-                },
-                "brand-success": {
-                    "type": "colorPicker",
-                    "required": false,
-                    "scss": true,
-                    "label": "Config.brandSuccessLabel",
-                    "options": {
-                        "defaultValue": "#28a745"
-                    }
-                },
-                "brand-info": {
-                    "type": "colorPicker",
-                    "required": false,
-                    "scss": true,
-                    "label": "Config.brandInfoLabel",
-                    "options": {
-                        "defaultValue": "#17a2b8"
-                    }
-                },
-                "brand-warning": {
-                    "type": "colorPicker",
-                    "required": false,
-                    "scss": true,
-                    "label": "Config.brandWarningLabel",
-                    "options": {
-                        "defaultValue": "#ffc107"
-                    }
-                },
-                "brand-danger": {
-                    "type": "colorPicker",
-                    "required": false,
-                    "scss": true,
-                    "label": "Config.brandDangerLabel",
-                    "options": {
-                        "defaultValue": "#dc3545"
                     }
                 }
             }
