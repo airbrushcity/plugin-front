@@ -37,22 +37,22 @@ $brand-success:             $green !default;
 $brand-info:                $purple !default;
 $brand-warning:             $yellow !default;
 $brand-danger:              $red !default;
-$c-light:                     #f8f9fa !default;
-$c-dark:                      #343a40 !default;
-$c-yiq-text-dark:             #212529 !default;
-$c-yiq-text-light:            #fff !default;
-$c-body-bg:                   #fafafa !default;
-$c-top-bar-bg:                #441410 !default;
-$c-basket-bg:                 #d1cfe8 !default;
-$c-footer-bg:                 #802331 !default;
-$c-footer-text:               #212529 !default;
-$c-footer-features-bg:        #e9ecef !default;
-$c-footer-features-text:      #212529 !default;
-$c-navbar-bg:                 #f8f9fa !default;
-$c-navbar-dark-text:          #6c757d !default;
-$c-navbar-dark-text-off:      #adb5bd !default;
-$c-nav-link-hover-bg:         #008ebd !default;
-$c-nav-tabs-border:           #ddd !default;
+$p-light:                     #f8f9fa !default;
+$p-dark:                      #343a40 !default;
+$p-yiq-text-dark:             #212529 !default;
+$p-yiq-text-light:            #fff !default;
+$p-body-bg:                   #fafafa !default;
+$p-top-bar-bg:                #441410 !default;
+$p-basket-bg:                 #d1cfe8 !default;
+$p-footer-bg:                 #802331 !default;
+$p-footer-text:               #212529 !default;
+$p-footer-features-bg:        #e9ecef !default;
+$p-footer-features-text:      #212529 !default;
+$p-navbar-bg:                 #f8f9fa !default;
+$p-navbar-dark-text:          #6c757d !default;
+$p-navbar-dark-text-off:      #adb5bd !default;
+$p-nav-link-hover-bg:         #008ebd !default;
+$p-nav-tabs-border:           #ddd !default;
 
 @function check-color($color, $fallback) {
     @if type-of($color) != color {
@@ -67,12 +67,12 @@ $success:                   check-color($brand-success, $green) !default;
 $info:                      check-color($brand-info, $cyan) !default;
 $warning:                   check-color($brand-warning, $yellow) !default;
 $danger:                    check-color($brand-danger, $red) !default;
-$light:                     check-color($p-light, $c-light) !default;
-$dark:                      check-color($p-dark, $c-dark) !default;
-$yiq-text-dark:             check-color($p-yiq-text-dark, $c-yiq-text-dark) !default;
-$yiq-text-light:            check-color($p-yiq-text-light, $c-yiq-text-light) !default;
+$light:                     check-color($p-light, $p-light) !default;
+$dark:                      check-color($p-dark, $p-dark) !default;
+$yiq-text-dark:             check-color($p-yiq-text-dark, $p-yiq-text-dark) !default;
+$yiq-text-light:            check-color($p-yiq-text-light, $p-yiq-text-light) !default;
 $yiq-contrasted-threshold:  186 !default;
-$body-bg:                   check-color($p-body-bg, $c-body-bg) !default;
+$body-bg:                   check-color($p-body-bg, $p-body-bg) !default;
 
 //
 // Sizes
@@ -98,19 +98,19 @@ $fa-font-path:              "#{$root-directory}/documents/fonts" !default;
 //
 // Top Bar
 //
-$top-bar-bg:                check-color($p-top-bar-bg, $c-top-bar-bg) !default;
+$top-bar-bg:                check-color($p-top-bar-bg, $p-top-bar-bg) !default;
 $top-bar-color:             color-yiq($top-bar-bg) !default;
-$top-bar-basket-btn:        check-color($p-basket-bg, $c-basket-bg) !default;
+$top-bar-basket-btn:        check-color($p-basket-bg, $p-basket-bg) !default;
 $top-bar-basket-color:      color-yiq($top-bar-basket-btn) !default;  
 
 //
 // Footer
 //
-$footer-bg:                 check-color($p-footer-bg, $c-footer-bg) !default;
-$footer-color:              check-color($p-footer-text, $c-footer-text) !default;
+$footer-bg:                 check-color($p-footer-bg, $p-footer-bg) !default;
+$footer-color:              check-color($p-footer-text, $p-footer-text) !default;
 
-$footer-features-bg:        check-color($p-footer-features-bg, $c-footer-features-bg) !default;
-$footer-features-color:     check-color($p-footer-features-text, $c-footer-features-text) !default;   
+$footer-features-bg:        check-color($p-footer-features-bg, $p-footer-features-bg) !default;
+$footer-features-color:     check-color($p-footer-features-text, $p-footer-features-text) !default;   
 
 
 //
@@ -252,14 +252,14 @@ $zindex-tooltip:                    $zindex-7 !default;
 $zindex-wrapper:                    $zindex-10 !default;
 
 // Navbar
-$navbar-background-color:           check-color($p-navbar-bg, $c-navbar-bg) !default;    
-$navbar-dark-color:                 check-color($p-navbar-dark-text, $c-navbar-dark-text) !default;
-$navbar-dark-disabled-color:        check-color($p-navbar-dark-text-off, $c-navbar-dark-text-off) !default;
+$navbar-background-color:           check-color($p-navbar-bg, $p-navbar-bg) !default;    
+$navbar-dark-color:                 check-color($p-navbar-dark-text, $p-navbar-dark-text) !default;
+$navbar-dark-disabled-color:        check-color($p-navbar-dark-text-off, $p-navbar-dark-text-off) !default;
 
 // Navs
 $nav-link-padding-y:                1.3rem !default;
-$nav-link-hover-bg:                 check-color($p-nav-link-hover-bg, $c-nav-link-hover-bg) !default;
-$nav-tabs-border-color:             check-color($p-nav-tabs-border, $c-nav-tabs-border) !default; 
+$nav-link-hover-bg:                 check-color($p-nav-link-hover-bg, $p-nav-link-hover-bg) !default;
+$nav-tabs-border-color:             check-color($p-nav-tabs-border, $p-nav-tabs-border) !default; 
 
 // Sidenavigation
 $nav-link-expandable-margin:        1.25rem !default;
