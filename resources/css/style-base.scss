@@ -138,281 +138,241 @@
 // Variables
 // --------------------------------------------------
 $enable-deprecation-messages: false !default;
-
 //
 // Colors
 //
-$white:                     #fff !default;
-$gray-100:                  #f8f9fa !default;
-$gray-200:                  #e9ecef !default;
-$gray-300:                  #dee2e6 !default;
-$gray-400:                  #ced4da !default;
-$gray-500:                  #adb5bd !default;
-$gray-600:                  #6c757d !default;
-$gray-700:                  #495057 !default;
-$gray-800:                  #343a40 !default;
-$gray-900:                  #212529 !default;
-$black:                     #000 !default;
-
-$blue:                      #008ebd !default;
-$indigo:                    #6610f2 !default;
-$purple:                    #6f42c1 !default;
-$pink:                      #e83e8c !default;
-$red:                       #d4021d !default;
-$orange:                    #fd7e14 !default;
-$yellow:                    #ffc107 !default;
-$green:                     #28a745 !default;
-$teal:                      #20c997 !default;
-$cyan:                      #17a2b8 !default;
+$white : #fff !default;
+$gray-100 : #f8f9fa !default;
+$gray-200 : #e9ecef !default;
+$gray-300 : #dee2e6 !default;
+$gray-400 : #ced4da !default;
+$gray-500 : #adb5bd !default;
+$gray-600 : #6c757d !default;
+$gray-700 : #495057 !default;
+$gray-800 : #343a40 !default;
+$gray-900 : #212529 !default;
+$black : #000 !default;
+$blue : #0044cc !default;
+$indigo : #6610f2 !default;
+$purple : #4a0202 !default;
+$pink : #e83e8c !default;
+$red : #d4021d !default;
+$orange : #fd7e14 !default;
+$yellow : #ffc107 !default;
+$green : #28a745 !default;
+$teal : #802331 !default;
+$cyan : #b43c3e !default;
 
 // Legacy: Do not remove!
 // This variables are filled with the values from the plugin config
-$brand-primary:             $blue !default;
-$brand-secondary:           $gray-600 !default;
-$brand-success:             $green !default;
-$brand-info:                $cyan !default;
-$brand-warning:             $yellow !default;
-$brand-danger:              $red !default;
-
+$brand-primary : $blue !default;
+$brand-secondary : $cyan !default;
+$brand-success : $green !default;
+$brand-info : $purple !default;
+$brand-warning : $yellow !default;
+$brand-danger : $red !default;
+$brand-light : $gray-100 !default;
+$brand-dark : $gray-800 !default;
+$brand-yiq-text-dark : $gray-900 !default;
+$brand-yiq-text-light : $white !default;
+$brand-body-bg : $gray-100 !default;
+$brand-top-bar-bg : $gray-700 !default;
+$brand-top-bar-basket-btn : $blue !default;
+$brand-footer-bg : $teal !default;
+$brand-footer-color : $gray-900 !default;
+$brand-footer-features-bg : $gray-200 !default;
+$brand-footer-features-color : $gray-900 !default;
+$brand-navbar-background-color : $gray-100 !default;
+$brand-navbar-dark-color : $gray-600 !default;
+$brand-navbar-dark-disabled-color : $gray-500 !default;
+$brand-nav-link-hover-bg : $blue !default;
+$brand-nav-tabs-border-color : #ddd !default;
 @function check-color($color, $fallback) {
-    @if type-of($color) != color {
+    @if type-of($color) !=color {
         @return $fallback;
     }
     @return $color;
 }
 
-$primary:                   check-color($brand-primary, $blue) !default;
-$secondary:                 check-color($brand-secondary, $gray-600) !default;
-$success:                   check-color($brand-success, $green) !default;
-$info:                      check-color($brand-info, $cyan) !default;
-$warning:                   check-color($brand-warning, $yellow) !default;
-$danger:                    check-color($brand-danger, $red) !default;
-$light:                     $gray-100 !default;
-$dark:                      $gray-800 !default;
-
-$yiq-text-dark:             $gray-900 !default;
-$yiq-text-light:            $white !default;
-$yiq-contrasted-threshold:  186 !default;
-
-$body-bg:                   $gray-100 !default;
+$primary : check-color($brand-primary, $blue) !default;
+$secondary : check-color($brand-secondary, $cyan) !default;
+$success : check-color($brand-success, $green) !default;
+$info : check-color($brand-info, $purple) !default;
+$warning : check-color($brand-warning, $yellow) !default;
+$danger : check-color($brand-danger, $red) !default;
+$light : check-color($brand-light, $gray-100) !default;
+$dark : check-color($brand-dark, $gray-800) !default;
+$yiq-text-dark : check-color($brand-yiq-text-dark, $gray-900) !default;
+$yiq-text-light : check-color($brand-body-bg, $gray-100) !default;
+$yiq-contrasted-threshold : 186 !default;
+$body-bg : check-color($brand-body-bg, $gray-100) !default;
 
 //
 // Sizes
 //
-$heights: (
-    1: (xs: 36px, sm: 48px, md: 64px, lg: 72px, xl: 80px),
-    2: (xs: 72px, sm: 90px, md: 128px, lg: 144px, xl: 160px),
-    3: (xs: 128px, sm: 160px, md: 192px, lg: 224px, xl: 256px),
-    4: (xs: 200px, sm: 244px, md: 288px, lg: 332px, xl: 376px),
-    5: (xs: 272px, sm: 328px, md: 384px, lg: 440px, xl: 496px)
-) !default;
+$heights: ( 1: (xs: 36px, sm: 48px, md: 64px, lg: 72px, xl: 80px), 2: (xs: 72px, sm: 90px, md: 128px, lg: 144px, xl: 160px), 3: (xs: 128px, sm: 160px, md: 192px, lg: 224px, xl: 256px), 4: (xs: 200px, sm: 244px, md: 288px, lg: 332px, xl: 376px), 5: (xs: 272px, sm: 328px, md: 384px, lg: 440px, xl: 496px)) !default;
 //
 // Fonts
 //
-$root-directory:            ".." !default;
-
-$flag-icon-css-path:        "#{$root-directory}/images/flags" !default;
-$flag-icon-rect-path:       "/4x3" !default;
-$flag-icon-square-path:     "/1x1" !default;
-
-$fa-font-path:              "#{$root-directory}/documents/fonts" !default;
-
+$root-directory : ".." !default;
+$flag-icon-css-path : "#{$root-directory}/images/flags" !default;
+$flag-icon-rect-path : "/4x3" !default;
+$flag-icon-square-path : "/1x1" !default;
+$fa-font-path : "#{$root-directory}/documents/fonts" !default;
 //
 // Top Bar
 //
-$top-bar-bg:                $gray-700 !default;
-$top-bar-color:             color-yiq($top-bar-bg) !default;
-$top-bar-basket-btn:        $primary !default;
-$top-bar-basket-color:      color-yiq($top-bar-basket-btn) !default;
-
+$top-bar-bg : check-color($brand-top-bar-bg, $gray-700) !default;
+$top-bar-color : color-yiq($brand-top-bar-bg) !default;
+$top-bar-basket-btn : check-color($brand-top-bar-basket-btn, $blue) !default;
+$top-bar-basket-color : color-yiq($brand-top-bar-basket-btn) !default;
 //
 // Footer
 //
-$footer-bg:                 $gray-100 !default;
-$footer-color:              $gray-900 !default;
-
-$footer-features-bg:        darken($gray-100, 10%) !default;
-$footer-features-color:     $gray-900 !default;
-
-
+$footer-bg : check-color($brand-footer-bg, $teal) !default;
+$footer-color : check-color($brand-footer-color, $gray-900) !default;
+$footer-features-bg : check-color($brand-footer-features-bg, $gray-200) !default;
+$footer-features-color : check-color($brand-footer-features-color, $gray-900) !default;
 //
 // Typography
 //
-$font-family-sans-serif:    custom-font, helvetica, arial, sans-serif !default;
-$font-family-serif:         georgia, "Times New Roman", times, serif !default;
-$font-family-heading:       $font-family-sans-serif !default;
-
+$font-family-sans-serif : custom-font,
+helvetica,
+arial,
+sans-serif !default;
+$font-family-serif : georgia,
+"Times New Roman",
+times,
+serif !default;
+$font-family-heading : $font-family-sans-serif !default;
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
-$font-size-root:            14px !default;
-
-$h1-font-size:              2rem !default;
-$h2-font-size:              1.8rem !default;
-$h3-font-size:              1.5rem !default;
-$h4-font-size:              1.25rem !default;
-$h5-font-size:              1rem !default;
-$h6-font-size:              .8rem !default;
-
-$display1-size:             4rem !default;
-$display2-size:             3.5rem !default;
-$display3-size:             2.5rem !default;
-$display4-size:             1.5rem !default;
-
-$headings-line-height:      1.1 !default;
-
-$hr-border-color:           $gray-300 !default;
-
-$list-inline-padding:       5px !default;
-
+$font-size-root : 14px !default;
+$h1-font-size : 2rem !default;
+$h2-font-size : 1.8rem !default;
+$h3-font-size : 1.5rem !default;
+$h4-font-size : 1.25rem !default;
+$h5-font-size : 1rem !default;
+$h6-font-size : .8rem !default;
+$display1-size : 4rem !default;
+$display2-size : 3.5rem !default;
+$display3-size : 2.5rem !default;
+$display4-size : 1.5rem !default;
+$headings-line-height : 1.1 !default;
+$hr-border-color : $gray-300 !default;
+$list-inline-padding : 5px !default;
 // Components
 //
 // Define common padding and border radius sizes and more.
-
-$line-height-lg:            (4 / 3) !default;
-
-$border-radius:             .1rem !default;
-$border-radius-sm:          .15rem !default;
-$border-radius-lg:          .2rem !default;
-
-$progress-border-radius:    .25rem !default;
-
+$line-height-lg : (4 / 3) !default;
+$border-radius : .1rem !default;
+$border-radius-sm : .15rem !default;
+$border-radius-lg : .2rem !default;
+$progress-border-radius : .25rem !default;
 //Ceres variables
 $aside-columns-width: 30rem !default;
 $autocomplete-max-items: 10 !default;
-
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
-
-$btn-padding-x:             1rem !default;
-$btn-padding-y:             .5rem !default;
-$btn-line-height:           1.25 !default;
-
-$btn-padding-x-lg:          1.5rem !default;
-$btn-padding-y-lg:          .75rem !default;
-
-$btn-block-spacing-y:       .5rem !default;
-$btn-toolbar-margin:        .5rem !default;
-
+$btn-padding-x : 1rem !default;
+$btn-padding-y : .5rem !default;
+$btn-line-height : 1.25 !default;
+$btn-padding-x-lg : 1.5rem !default;
+$btn-padding-y-lg : .75rem !default;
+$btn-block-spacing-y : .5rem !default;
+$btn-toolbar-margin : .5rem !default;
 // Forms
-
-$input-padding-y:           .5rem !default;
-$input-line-height:         1.25 !default;
-
-$input-border-color:        rgba(0, 0, 0, .15) !default;
-
-$input-focus-border-color:  #66afe9 !default;
-$input-focus-box-shadow:    rgba(102, 175, 233, .6) !default;
-
-$input-placeholder-color:   #999 !default;
-
-$input-padding-y-lg:        .75rem !default;
-$input-padding-x-lg:        1.5rem !default;
-
-$custom-control-indicator-disabled-bg:          #eee !default;
-$custom-control-label-disabled-color:           #767676 !default;
-
-$custom-control-checked-indicator-color:        #fff !default;
-$custom-control-checked-indicator-bg:           #0074d9 !default;
-
-$custom-control-indicator-focus-box-shadow:     0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9 !default;
-
-$custom-control-indicator-active-color:         #fff !default;
-$custom-control-indicator-active-bg:            #84c6ff !default;
-
-$custom-checkbox-indicator-indeterminate-bg:    #0074d9 !default;
-
-$custom-select-padding-y:                       .8rem !default;
-$custom-select-padding-x:                       1rem !default;
-$custom-select-height:                          auto !default;
-$custom-select-line-height:                     1.2 !default;
-$custom-select-border-width:                    0 !default;
-
-$custom-file-height:                            2.5rem !default;
-$custom-file-focus-box-shadow:                  0 0 0 .075rem #fff, 0 0 0 .2rem #0074d9 !default;
-
-$custom-file-padding-x:                         .5rem !default;
-$custom-file-padding-y:                         1rem !default;
-$custom-file-color:                             #555 !default;
-$custom-file-bg:                                #fff !default;
-$custom-file-border-color:                      #ddd !default;
-$custom-file-box-shadow:                        inset 0 .2rem .4rem rgba(0, 0, 0, .05) !default;
-$custom-file-button-bg:                         #eee !default;
-
-$form-check-input-margin-y:                     .2rem !default;
-
+$input-padding-y : .5rem !default;
+$input-line-height : 1.25 !default;
+$input-border-color : rgba(0, 0, 0, .15) !default;
+$input-focus-border-color : #66afe9 !default;
+$input-focus-box-shadow : rgba(102, 175, 233, .6) !default;
+$input-placeholder-color : #999 !default;
+$input-padding-y-lg : .75rem !default;
+$input-padding-x-lg : 1.5rem !default;
+$custom-control-indicator-disabled-bg : #eee !default;
+$custom-control-label-disabled-color : #767676 !default;
+$custom-control-checked-indicator-color : #fff !default;
+$custom-control-checked-indicator-bg : #0074d9 !default;
+$custom-control-indicator-focus-box-shadow : 0 0 0 .075rem #fff,
+0 0 0 .2rem #0074d9 !default;
+$custom-control-indicator-active-color : #fff !default;
+$custom-control-indicator-active-bg : #84c6ff !default;
+$custom-checkbox-indicator-indeterminate-bg : #0074d9 !default;
+$custom-select-padding-y : .8rem !default;
+$custom-select-padding-x : 1rem !default;
+$custom-select-height : auto !default;
+$custom-select-line-height : 1.2 !default;
+$custom-select-border-width : 0 !default;
+$custom-file-height : 2.5rem !default;
+$custom-file-focus-box-shadow : 0 0 0 .075rem #fff,
+0 0 0 .2rem #0074d9 !default;
+$custom-file-padding-x : .5rem !default;
+$custom-file-padding-y : 1rem !default;
+$custom-file-color : #555 !default;
+$custom-file-bg : #fff !default;
+$custom-file-border-color : #ddd !default;
+$custom-file-box-shadow : inset 0 .2rem .4rem rgba(0, 0, 0, .05) !default;
+$custom-file-button-bg : #eee !default;
+$form-check-input-margin-y : .2rem !default;
 // This allows us to at a glance determine relative layers of our application and prevents bugs
 // arrising from arbitrary z-index values. Do not edit the z-index scale! Only add application
 // scoped z-index values.
-
-
 // Z-Index Scale
 // --------------------------------------------------
-$zindex-0:                          990 !default;
-$zindex-1:                          1000 !default;
-$zindex-2:                          1020 !default;
-$zindex-3:                          1030 !default;
-$zindex-4:                          1040 !default;
-$zindex-5:                          1050 !default;
-$zindex-6:                          1060 !default;
-$zindex-7:                          1070 !default;
-$zindex-8:                          1080 !default;
-$zindex-9:                          1090 !default;
-$zindex-10:                         10000 !default;
-
+$zindex-0 : 990 !default;
+$zindex-1 : 1000 !default;
+$zindex-2 : 1020 !default;
+$zindex-3 : 1030 !default;
+$zindex-4 : 1040 !default;
+$zindex-5 : 1050 !default;
+$zindex-6 : 1060 !default;
+$zindex-7 : 1070 !default;
+$zindex-8 : 1080 !default;
+$zindex-9 : 1090 !default;
+$zindex-10 : 10000 !default;
 // Z-index master list
 //
 // Warning: Avoid customizing these values. They're used for a bird's eye view
 // of components dependent on the z-axis and are designed to all work together.
-
-$zindex-dropdown:                   $zindex-1 !default;
-$zindex-fixed:                      $zindex-3 !default;
-$zindex-modal-backdrop:             $zindex-7 !default;
-$zindex-modal:                      $zindex-8 !default;
-$zindex-popover:                    $zindex-10 !default;
-$zindex-sticky:                     $zindex-2 !default;
-$zindex-tooltip:                    $zindex-7 !default;
-$zindex-wrapper:                    $zindex-10 !default;
-
+$zindex-dropdown : $zindex-1 !default;
+$zindex-fixed : $zindex-3 !default;
+$zindex-modal-backdrop : $zindex-7 !default;
+$zindex-modal : $zindex-8 !default;
+$zindex-popover : $zindex-10 !default;
+$zindex-sticky : $zindex-2 !default;
+$zindex-tooltip : $zindex-7 !default;
+$zindex-wrapper : $zindex-10 !default;
 // Navbar
-$navbar-background-color:           $gray-100 !default;
-$navbar-dark-color:                 $gray-600 !default;
-$navbar-dark-disabled-color:        $gray-500 !default;
-
+$navbar-background-color : check-color($brand-navbar-background-color, $gray-100) !default;
+$navbar-dark-color : check-color($brand-navbar-dark-color, $gray-600) !default;
+$navbar-dark-disabled-color : check-color($brand-navbar-dark-disabled-color, $gray-500) !default;
 // Navs
-$nav-link-padding-y:                1.3rem !default;
-$nav-link-hover-bg:                 $primary !default;
-$nav-tabs-border-color:             #ddd !default;
-
+$nav-link-padding-y : 1.3rem !default;
+$nav-link-hover-bg : check-color($brand-nav-link-hover-bg, $blue) !default;
+$nav-tabs-border-color : check-color($brand-nav-tabs-border-color, #ddd) !default;
 // Sidenavigation
-$nav-link-expandable-margin:        1.25rem !default;
-
+$nav-link-expandable-margin : 1.25rem !default;
 // Popovers
-$popover-max-width:                 276px !default;
-$popover-max-width-md:              414px !default;
-$popover-max-width-lg:              552px !default;
-$popover-inner-padding:             1px !default;
-
+$popover-max-width : 276px !default;
+$popover-max-width-md : 414px !default;
+$popover-max-width-lg : 552px !default;
+$popover-inner-padding : 1px !default;
 // Padding applied to the modal body
-$modal-dialog-margin:               0 !default;
-
-$modal-lg:                          900px !default;
-$modal-md:                          600px !default;
-$modal-sm:                          300px !default;
-
+$modal-dialog-margin : 0 !default;
+$modal-lg : 900px !default;
+$modal-md : 600px !default;
+$modal-sm : 300px !default;
 // Breadcrumbs
-$breadcrumb-padding-y:              .5rem !default;
-$breadcrumb-bg:                     darken($gray-200, 2%) !default;
-
+$breadcrumb-padding-y : .5rem !default;
+$breadcrumb-bg : darken($gray-200, 2%) !default;
 // Category
-$category-text-color:               #fff !default;
-
+$category-text-color : #fff !default;
 // Liveshopping
-$live-shopping-padding-x:           .8rem !default;
-$live-shopping-padding-y:           1rem !default;
-
-$component-active-bg:               $primary !default;
-$component-active-color:            color-yiq($component-active-bg) !default;
-
+$live-shopping-padding-x : .8rem !default;
+$live-shopping-padding-y : 1rem !default;
+$component-active-bg : $primary !default;
+$component-active-color : color-yiq($component-active-bg) !default;
 // quantity input
 $qty-box-width: 48px !default;
 $qty-box-btn-width: 24px !default;
@@ -420,16 +380,8 @@ $qty-box-padding-x: 0 !default;
 $qty-box-padding-y: 10px !default;
 $qty-box-border: $gray-400 !default;
 $qty-box-bg: $gray-200 !default;
-
 // Shopbuilder
-$shop-builder-colors: (
-    "primary":    $primary,
-    "secondary":  $secondary,
-    "success":    $success,
-    "info":       $info,
-    "warning":    $warning,
-    "danger":     $danger
-) !default;
+$shop-builder-colors: ( "primary" : $primary, "secondary" : $secondary, "success" : $success, "info" : $info, "warning" : $warning, "danger" : $danger) !default;
 
 // ==========================================================================
 // External Libs
@@ -14389,96 +14341,207 @@ header .widget {
 
 
 
-@media (min-width: 1430.02px) {.container-max {max-width: 1400px;}} 
-@media (min-width: 1920.02px) {.container-max {max-width: 1650px;}}
-
-.bg-header-special {
-    background-color:#802331 !important;
+// stylelint-disable
+@media (min-width: 1430.02px) {
+    .container-max {
+        max-width: 1400px;
     }
-    
+}
+@media (min-width: 1920.02px) {
+    .container-max {
+        max-width: 1650px;
+    }
+}
+body {
+    background-color: #fafafa !important;
+}
+.bg-header-special {
+    background-color: #802331 !important;
+}
 .logo-special {
     width: 320px;
     height: 64px;
 }
-    
 .logo-special {
     max-width: 100%;
     height: auto;
 }
-    
 .navbar-brand img {
     max-height: 4rem !important;
 }
-    
 .mainmenu {
     -webkit-box-pack: justify !important;
-        -ms-flex-pack: justify !important;
-            justify-content: space-between !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
 }
-
 .bg-menu-special {
-    background-color:#eaeaea !important;
+    background-color: #eaeaea !important;
 }
-    
-.menu-special {background-color:#fff}
-    
-.main-navbar-collapsable .mainmenu>li>a {color:#b43c3e;background-color:#f0f0f0;
+.menu-special {
+    background-color: #fff;
+}
+.main-navbar-collapsable .mainmenu > li > a {
+    color: #b43c3e;
+    background-color: #f0f0f0;
     padding: 0.5rem !important;
 }
-.main-navbar-collapsable .mainmenu>li>a:hover {color:#0044cc;background-color:#fff}
-    
-.breadcrumbs, .breadcrumb {
-    background-color:#fff !important;
+.main-navbar-collapsable .mainmenu > li > a:hover {
+    color: #0044cc;
+    background-color: #fff;
 }
-    
+.breadcrumbs,
+.breadcrumb {
+    background-color: #fff !important;
+}
 .custom-select {
-font-size:12px !important;
+    font-size: 12px !important;
 }
-
-.top-bar {background-color:#441410 !important}
-
-.list-controls-inner {background-color:#efefef !important}
-
-.list-controls-inner > div {padding: .25rem !important; }
-
-.footer>.container-max {
-    max-width: 1370px;
+.top-bar {
+    background-color: #441410 !important;
 }
-
+.list-controls-inner {
+    background-color: #efefef !important;
+}
+.list-controls-inner > div {
+    padding: 0.25rem !important;
+}
+.footer > .container-max {
+    max-width: 1170px;
+}
 .back-to-top {
     margin-bottom: 2.5rem !important;
 }
-
 .back-to-top2 {
     margin-bottom: 2rem !important;
 }
-
-
 .footer {
     background-color: #fff;
 }
-
-.mwst-blende {
+.mwst-blende2 {
     position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 999;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    text-align: center;
     padding: 4px 0;
-    width: 100%;
     height: 30px;
     line-height: 24px;
-    font-size: 12px
+    font-size: 12px;
 }
-
-.mwst-blende a {
+.mwst-blende2 a {
     color: #d1cfe8 !important;
 }
+.mwst-blende2 > a:hover {
+    color: #b0add7 !important;
+}
+.cmpboxrecall {
+    bottom: 2px !important;
+}
 
-.mwst-blende > a:hover {color:#b0add7 !important}
+.mobile-navigation .breadcrumb {
+    font-size: 0.8rem;
+    background: #212529 !important;
+}
 
-.cmpboxrecall {bottom:2px !important}
+.cmp-product-thumb,
+.bg-white {
+    border: 1px solid #f2f2f2;
+}
+
+.cmp-product-thumb {
+    border-radius: 1rem;
+}
+
+.cmp-product-thumb:hover {
+    border-color: #ccddff;
+}
+
+div#beschreibung {
+    padding: 2rem !important;
+}
+
+@media (min-width: 992.02px) {
+    .main-navbar-collapsable .mainmenu > li > a {
+        background-color: #f2f2f2 !important;
+    }
+
+    .main-navbar-collapsable .mainmenu > li > a:hover {
+        background-color: #fafafa !important;
+    }
+
+    .list-controls .list-sort,
+    .list-controls .list-itemsperpage {
+        padding: 0.125rem;
+    }
+
+    .list-controls-inner {
+        background-color: #f4f4f4 !important;
+    }
+
+    .custom-select {
+        padding: 0.6rem 2rem 0.6rem 1rem;
+    }
+
+    .breadcrumbs,
+    .breadcrumb {
+        padding-left: 1.5em !important;
+        background-color: #fafafa !important;
+    }
+
+    .only-mobile {
+        display: none !important;
+    }
+    .mobile-navigation {
+        background-color: #fff;
+        color: #04c;
+        padding-top: 0;
+    }
+    .mobile-navigation {
+        position: relative !important;
+        -webkit-transform: translateX(0%) !important;
+                transform: translateX(0%) !important;
+        opacity: 1;
+        font-size: 1rem !important;
+        border: 1px solid #f2f2f2;
+    }
+    .mobile-navigation .mainmenu {
+        position: relative !important;
+    }
+    .mobile-navigation .mainmenu li a {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 1.5rem;
+        padding-right: 0;
+    }
+
+    .mobile-navigation .nav-direction {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .sidebar-categories .category-title,
+    .widget-navigation-tree .category-title {
+        display: none !important;
+    }
+
+    .mobile-navigation .nav-direction {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 20%;
+        flex: 1 0 10%;
+        padding: 0.5rem;
+    }
+
+    .desktop-menu .fa-lg {
+        font-size: 1.25rem;
+    }
+
+    .fa-level-up {
+        padding-top: 0.75rem;
+    }
+
+    .mobile-navigation .nav-direction {
+        margin-left: 0.5rem !important;
+    }
+}
+
