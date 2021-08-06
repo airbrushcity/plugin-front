@@ -58,7 +58,7 @@
                     "options": {
                         "defaultValue": "#b43c3e"
                     }
-                }
+                },
                 "brand-success": {
                     "type": "colorPicker",
                     "required": false,
