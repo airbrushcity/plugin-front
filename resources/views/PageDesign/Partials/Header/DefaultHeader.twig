@@ -1,5 +1,6 @@
 {% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
+{% set description = '' %}
 {% if isItem %}
     {% set itemData = item.documents[0].data %}
     {% set description = itemData.texts.metaDescription %}
@@ -7,7 +8,7 @@
     {% set details = category.details[0] %}
     {% set description = details.metaDescription %}
 {% endif %}    
-{% if description is null %}
+{% if description is == '' or null %}
     {% set description = 'Webshop der Airbrush City GmbH' %}
 {% endif %}    
 
