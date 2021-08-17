@@ -1,8 +1,12 @@
 {% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
-{% if category is defined and category is not null %}
+
+{% if block('description') is defined %}
+    {% set description = block('description') %}
+{% elseif category is defined and category is not null %}
     {% set details = category.details[0] %}
+    {% set description = details.metaDescription %}
 {% endif %}
-{% set description = details.metaDescription %}
+
 <header id="page-header" class="default-header d-print-none">
     <div class="container-max">
         <div class="row flex-row-reverse position-relative">
