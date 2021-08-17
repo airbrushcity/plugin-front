@@ -1,12 +1,13 @@
 {% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{% set description = 'Webshop der Airbrush City GmbH' %}
-{% if isItem %}
+{% if isItem is defined and isItem is not null %}
     {% set itemData = item.documents[0].data %}
     {% set description = itemData.texts.metaDescription %}
 {% elseif category is defined and category is not null %}
     {% set details = category.details[0] %}
     {% set description = details.metaDescription %}
+{% else %}
+    {% set description = 'Webshop der Airbrush City GmbH' %}
 {% endif %}    
 
 <header id="page-header" class="default-header d-print-none">
