@@ -4,6 +4,7 @@
     {% set details = category.details[0] %}
     {% set description = details.metaDescription %}
 {% else %}
+    {% set itemData = item.documents[0].data %}
     {% set description = itemData.texts.metaDescription %}
 {% endif %}
 
