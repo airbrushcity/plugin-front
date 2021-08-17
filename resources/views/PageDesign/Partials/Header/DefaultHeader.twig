@@ -6,7 +6,7 @@
 {% elseif category is defined and category is not null %}
     {% set details = category.details[0] %}
     {% set description = details.metaDescription %}
-{% else %}
+{% elseif description == '' %}
     {% set description = 'Webshop der Airbrush City GmbH' %}
 {% endif %}    
 
