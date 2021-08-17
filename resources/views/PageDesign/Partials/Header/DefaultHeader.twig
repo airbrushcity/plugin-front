@@ -8,6 +8,9 @@
     {% set details = category.details[0] %}
     {% set description = details.metaDescription %}
 {% endif %}    
+{% if description == '' %}
+    {% set description = 'Webshop der Airbrush City GmbH' %}
+{% endif %}    
 
 <header id="page-header" class="default-header d-print-none">
     <div class="container-max">
