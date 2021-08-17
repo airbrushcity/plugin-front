@@ -1,10 +1,8 @@
 {% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
-{% set description = '' %}
-{% if block('description') is defined %}
-    {% set description = block('description') %}
-{% elseif details is not null %}
-    {% set description = details.metaDescription %}
+{% if category is defined and category is not null %}
+    {% set details = category.details[0] %}
 {% endif %}
+{% set description = details.metaDescription %}
 <header id="page-header" class="default-header d-print-none">
     <div class="container-max">
         <div class="row flex-row-reverse position-relative">
@@ -19,7 +17,7 @@
 				    <ul class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
 				    
 				    	<li class="list-inline-item dropdown p-2 ml-3">
-					    <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="Airbrush City"></i>
+					    <i class="fa fa-info-circle" data-toggle="tooltip" data-placement="right" title="{{ description }}"></i>
 					</li>
 																    
 				        <li class="list-inline-item control-user d-md-none">
