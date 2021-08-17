@@ -1,6 +1,6 @@
 {% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{% if isItem is defined and isItem is not null %}
+{% if isItem %}
     {% set itemData = item.documents[0].data %}
     {% set description = itemData.texts.metaDescription %}
 {% elseif category is defined and category is not null %}
