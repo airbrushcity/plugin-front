@@ -1,10 +1,10 @@
 {% import "Front::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{% if block('description') is defined %}
-    {% set description = block('description') %}
-{% elseif category is defined and category is not null %}
+{% if category is defined and category is not null %}
     {% set details = category.details[0] %}
     {% set description = details.metaDescription %}
+{% else %}
+    {% set description = itemData.texts.metaDescription %}
 {% endif %}
 
 <header id="page-header" class="default-header d-print-none">
