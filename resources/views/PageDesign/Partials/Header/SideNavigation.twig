@@ -1,10 +1,16 @@
-{% import "Front::Category.Macros.CategoryTree" as Tree %}
+<div class="desktop-menu">
+    {% if category.linklist == "Y" %}
+        {% set initialCategory = { id: category.id } %}
+    {% else %}
+        {% set initialCategory = category %}
+    {% endif %}
+    {% if services.template.isItem() == "1" and defaultCategory is not null %}
+        {% set initialCategory = defaultCategory %}
+    {% elseif services.template.isCurrentTemplate('tpl.home.category') %}
+        {% set initialCategory = null %}
+    {% endif %}
+    <lazy-hydrate when-idle>
+        <desktop-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></desktop-navigation>
+    </lazy-hydrate>
+</div>
 
-{% set lang = services.localizationRepository.getLanguage() %}
-{% set categoryBreadcrumbs = services.category.getHierarchy() %}
-
-{{ Tree.get_sidemenu(categoryBreadcrumbs, categories, "", spacingPadding, inlinePadding, showItemCount, expandableChildren, customEntries) }}
-
-{#
-<desktop-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></desktop-navigation>
-#}
