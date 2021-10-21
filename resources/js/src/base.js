@@ -59,10 +59,10 @@ Vue.component("recaptcha", ReCaptcha);
 Vue.component("registration", () => import("./app/components/customer/Registration.vue"));
 Vue.component("reset-password-form", () => import("./app/components/customer/ResetPasswordForm.vue"));
 Vue.component("forgot-password-modal", () => import("./app/components/customer/login/ForgotPassword.vue"));
-Vue.component("guest-login", () => import("./app/components/customer/login/GuestLogin.vue"));
-Vue.component("login", () => import("./app/components/customer/login/Login.vue"));
+// Vue.component("guest-login", () => import("./app/components/customer/login/GuestLogin.vue"));
+// Vue.component("login", () => import("./app/components/customer/login/Login.vue"));
 // legacy non-shopbuilder component
-Vue.component("login-view", () => import("./app/components/customer/login/LoginView.vue"));
+// Vue.component("login-view", () => import("./app/components/customer/login/LoginView.vue"));
 import UserLoginHandler from "./app/components/customer/login/UserLoginHandler.vue";
 Vue.component("user-login-handler", UserLoginHandler);
 Vue.component("form-attachment", () => import("./app/components/form/FormAttachment.vue"));
@@ -87,8 +87,8 @@ Vue.component("live-shopping-item", () => import("./app/components/liveShopping/
 
 Vue.component("order-return", () => import("./app/components/orderReturn/OrderReturn.vue"));
 
-Vue.component("cookie-bar", () => import("./app/components/pageDesign/CookieBar.vue"));
-Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
+// Vue.component("cookie-bar", () => import("./app/components/pageDesign/CookieBar.vue"));
+// Vue.component("privacy-settings", () => import("./app/components/pageDesign/PrivacySettings.vue"));
 Vue.component("carousel", () => import("./app/components/pageDesign/Carousel.vue"));
 import Icon from "./app/components/pageDesign/Icon.vue";
 Vue.component("icon", Icon);
@@ -96,10 +96,12 @@ import LanguageDetection from "./app/components/pageDesign/LanguageDetection.vue
 Vue.component("language-detection", LanguageDetection);
 import MobileNavigation from "./app/components/pageDesign/MobileNavigation.vue";
 Vue.component("mobile-navigation", MobileNavigation);
+import DesktopNavigation from "./app/components/pageDesign/DesktopNavigation.vue";
+Vue.component("desktop-navigation", DesktopNavigation);
 import Notifications from "./app/components/pageDesign/Notifications.vue";
 Vue.component("notifications", Notifications);
 Vue.component("popper", () => import("./app/components/pageDesign/Popper.vue"));
-Vue.component("shipping-country-select", () => import("./app/components/pageDesign/ShippingCountrySelect.vue"));
+// Vue.component("shipping-country-select", () => import("./app/components/pageDesign/ShippingCountrySelect.vue"));
 Vue.component("loading-animation", () => import("./app/components/pageDesign/LoadingAnimation.vue"));
 
 Vue.component("wish-list", () => import("./app/components/wishList/WishList.vue"));
@@ -155,10 +157,11 @@ import "./app/directives/helper/waitingAnimationInfinite";
 
 import "./app/directives/navigation/navigationTouchHandler";
 import "./app/directives/navigation/openMobileNavigation";
+import "./app/directives/navigation/openDesktopNavigation";
 
 import "./app/directives/pageDesign/scrollToTop";
 import "./app/directives/pageDesign/stickInParent";
-import "./app/directives/navigation/sidenavigationChildrenLoader";
+// import "./app/directives/navigation/sidenavigationChildrenLoader";
 import "./app/directives/pageDesign/tooltip";
 
 
