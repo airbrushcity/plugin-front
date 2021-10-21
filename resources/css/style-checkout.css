@@ -7550,8 +7550,7 @@ a {
 
 [v-cloak],
 script2,
-style2,
-tab-list {
+style2 {
   display: none !important; }
 
 .mh-1 {
@@ -11168,8 +11167,6 @@ body.menu-is-visible {
   .mobile-navigation .breadcrumb {
     font-size: .8em;
     background: #212529; }
-    .mobile-navigation .breadcrumb .breadcrumb-item {
-      padding-right: .5rem; }
     .mobile-navigation .breadcrumb li {
       display: inline-block;
       padding: .8rem 0;

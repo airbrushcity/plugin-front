@@ -37,6 +37,8 @@
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
+{% block PartialNext %}
+{% endblock %}
 
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 </head>
@@ -45,16 +47,11 @@
 
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}
 <!-- Google Tag Manager -->
-<script>
-{% if services.template.getCurrentTemplate() == 'tpl.confirmation' %}
-var GtagKaufpreis = {{ data.order.amounts[0].netTotal }};
-var GtagBestellnummer = {{ orderData.order.id }};
-{% endif %}
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','{{ config('Front.Settings.GoogleTrackingVariable') }}');
+    })(window,document,'script','dataLayer','{{ config('Front.Settings.GoogleTrackingVariable') }}');
 </script>
 <!-- End Google Tag Manager -->
 
@@ -73,6 +70,11 @@ var GtagBestellnummer = {{ orderData.order.id }};
 
     {% include getPartial('footer') %}
     {% block PartialFooter %}{% endblock %}
+    
+    <div class="w-100 top-bar mwst-blende2">
+        <span>&#42; Alle Preise inkl. Mwst </span>
+        <a href="/zahlung-und-versand">zuzüglich Versandkosten</a>
+    </div>
 
     <!-- BASKET MODAL -->
     <lazy-load component="add-item-to-basket-overlay">
@@ -202,7 +204,10 @@ var GtagBestellnummer = {{ orderData.order.id }};
 {% endif %}
 
 <script>
-    {% if request.get("show") == "forgotPassword" %}window.ceresStore.dispatch("loadComponent", "forgot-password-modal"){% endif %}
+   {% if request.get("show") == "forgotPassword" %}window.ceresStore.dispatch("loadComponent", "forgot-password-modal"){% endif %}
+   $(document).ready(function(){
+       $("[data-toggle='tooltip']").tooltip();
+   });
 </script>
 
 {{ get_filtered_tags() }}

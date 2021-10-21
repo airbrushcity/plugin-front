@@ -9127,8 +9127,7 @@ a {
 // stylelint-disable selector-type-no-unknown
 [v-cloak],
 script2,
-style2,
-tab-list {
+style2 {
     display: none !important; // stylelint-disable-line declaration-no-important
 }
 // stylelint-enable selector-type-no-unknown
@@ -13578,10 +13577,6 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
     .breadcrumb {
         font-size: .8em;
         background: $gray-900;
-
-        .breadcrumb-item {
-            padding-right: .5rem;
-        }
 
         li {
             display: inline-block;
