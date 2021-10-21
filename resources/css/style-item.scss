@@ -1,3 +1,7 @@
+@use "~bootstrap/scss/functions";
+
+@use "variables";
+
 // stylelint-disable
 body.lb-disable-scrolling {
     overflow: hidden;

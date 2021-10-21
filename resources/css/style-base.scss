@@ -133,6 +133,7 @@
   @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + unquote(" - ") + $value2);
 }
 
+
 //
 // Variables
 // --------------------------------------------------
@@ -153,25 +154,41 @@ $gray-800:                  #343a40 !default;
 $gray-900:                  #212529 !default;
 $black:                     #000 !default;
 
-$blue:                      #008ebd !default;
+$blue:                      #0044cc !default;
 $indigo:                    #6610f2 !default;
-$purple:                    #6f42c1 !default;
+$purple:                    #4a0202 !default;
 $pink:                      #e83e8c !default;
-$red:                       #d4021d !default;
+$red:                       #dc3545 !default;
 $orange:                    #fd7e14 !default;
 $yellow:                    #ffc107 !default;
 $green:                     #28a745 !default;
-$teal:                      #20c997 !default;
-$cyan:                      #17a2b8 !default;
+$teal:                      #802331 !default;
+$cyan:                      #b43c3e !default;
 
 // Legacy: Do not remove!
 // This variables are filled with the values from the plugin config
 $brand-primary:             $blue !default;
-$brand-secondary:           $gray-600 !default;
+$brand-secondary:           $cyan !default;
 $brand-success:             $green !default;
-$brand-info:                $cyan !default;
+$brand-info:                $purple !default;
 $brand-warning:             $yellow !default;
 $brand-danger:              $red !default;
+$p-light:                     #f8f9fa !default;
+$p-dark:                      #343a40 !default;
+$p-yiq-text-dark:             #212529 !default;
+$p-yiq-text-light:            #fff !default;
+$p-body-bg:                   #fafafa !default;
+$p-top-bar-bg:                #441410 !default;
+$p-basket-bg:                 #d1cfe8 !default;
+$p-footer-bg:                 #802331 !default;
+$p-footer-text:               #212529 !default;
+$p-footer-features-bg:        #e9ecef !default;
+$p-footer-features-text:      #212529 !default;
+$p-navbar-bg:                 #f8f9fa !default;
+$p-navbar-dark-text:          #6c757d !default;
+$p-navbar-dark-text-off:      #adb5bd !default;
+$p-nav-link-hover-bg:         #008ebd !default;
+$p-nav-tabs-border:           #ddd !default;
 
 @function check-color($color, $fallback) {
     @if type-of($color) != color {
@@ -186,14 +203,12 @@ $success:                   check-color($brand-success, $green) !default;
 $info:                      check-color($brand-info, $cyan) !default;
 $warning:                   check-color($brand-warning, $yellow) !default;
 $danger:                    check-color($brand-danger, $red) !default;
-$light:                     $gray-100 !default;
-$dark:                      $gray-800 !default;
-
-$yiq-text-dark:             $gray-900 !default;
-$yiq-text-light:            $white !default;
+$light:                     check-color($p-light, $p-light) !default;
+$dark:                      check-color($p-dark, $p-dark) !default;
+$yiq-text-dark:             check-color($p-yiq-text-dark, $p-yiq-text-dark) !default;
+$yiq-text-light:            check-color($p-yiq-text-light, $p-yiq-text-light) !default;
 $yiq-contrasted-threshold:  186 !default;
-
-$body-bg:                   $gray-100 !default;
+$body-bg:                   check-color($p-body-bg, $p-body-bg) !default;
 
 //
 // Sizes
@@ -219,19 +234,19 @@ $fa-font-path:              "#{$root-directory}/documents/fonts" !default;
 //
 // Top Bar
 //
-$top-bar-bg:                $gray-700 !default;
+$top-bar-bg:                check-color($p-top-bar-bg, $p-top-bar-bg) !default;
 $top-bar-color:             color-yiq($top-bar-bg) !default;
-$top-bar-basket-btn:        $primary !default;
-$top-bar-basket-color:      color-yiq($top-bar-basket-btn) !default;
+$top-bar-basket-btn:        check-color($p-basket-bg, $p-basket-bg) !default;
+$top-bar-basket-color:      color-yiq($top-bar-basket-btn) !default;  
 
 //
 // Footer
 //
-$footer-bg:                 $gray-100 !default;
-$footer-color:              $gray-900 !default;
+$footer-bg:                 check-color($p-footer-bg, $p-footer-bg) !default;
+$footer-color:              check-color($p-footer-text, $p-footer-text) !default;
 
-$footer-features-bg:        darken($gray-100, 10%) !default;
-$footer-features-color:     $gray-900 !default;
+$footer-features-bg:        check-color($p-footer-features-bg, $p-footer-features-bg) !default;
+$footer-features-color:     check-color($p-footer-features-text, $p-footer-features-text) !default;   
 
 
 //
@@ -373,14 +388,14 @@ $zindex-tooltip:                    $zindex-7 !default;
 $zindex-wrapper:                    $zindex-10 !default;
 
 // Navbar
-$navbar-background-color:           $gray-100 !default;
-$navbar-dark-color:                 $gray-600 !default;
-$navbar-dark-disabled-color:        $gray-500 !default;
+$navbar-background-color:           check-color($p-navbar-bg, $p-navbar-bg) !default;    
+$navbar-dark-color:                 check-color($p-navbar-dark-text, $p-navbar-dark-text) !default;
+$navbar-dark-disabled-color:        check-color($p-navbar-dark-text-off, $p-navbar-dark-text-off) !default;
 
 // Navs
 $nav-link-padding-y:                1.3rem !default;
-$nav-link-hover-bg:                 $primary !default;
-$nav-tabs-border-color:             #ddd !default;
+$nav-link-hover-bg:                 check-color($p-nav-link-hover-bg, $p-nav-link-hover-bg) !default;
+$nav-tabs-border-color:             check-color($p-nav-tabs-border, $p-nav-tabs-border) !default; 
 
 // Sidenavigation
 $nav-link-expandable-margin:        1.25rem !default;
@@ -429,7 +444,6 @@ $shop-builder-colors: (
     "warning":    $warning,
     "danger":     $danger
 ) !default;
-
 // ==========================================================================
 // External Libs
 // ==========================================================================
@@ -9113,7 +9127,8 @@ a {
 // stylelint-disable selector-type-no-unknown
 [v-cloak],
 script2,
-style2 {
+style2,
+tab-list {
     display: none !important; // stylelint-disable-line declaration-no-important
 }
 // stylelint-enable selector-type-no-unknown
@@ -13564,6 +13579,10 @@ body.menu-is-visible { // stylelint-disable-line selector-no-qualifying-type
         font-size: .8em;
         background: $gray-900;
 
+        .breadcrumb-item {
+            padding-right: .5rem;
+        }
+
         li {
             display: inline-block;
             padding: .8rem 0;
@@ -14389,108 +14408,206 @@ header .widget {
 
 
 // stylelint-disable
-body {
-	background-color: #fff;
+@media (min-width: 1430.02px) {
+    .container-max {
+        max-width: 1400px;
+    }
 }
-.container-max {
-	max-width: 1400px;
+@media (min-width: 1920.02px) {
+    .container-max {
+        max-width: 1650px;
+    }
+}
+body {
+    background-color: #fafafa !important;
 }
 .bg-header-special {
-	background-color: #f3788b;
+    background-color: #802331 !important;
 }
 .logo-special {
-	width: 320px;
-	height: 64px;
-	max-width: 100%;
-	height: auto;
+    width: 320px;
+    height: 64px;
 }
-.navbar-brand {
-	img {
-		max-height: 4rem;
-	}
+.logo-special {
+    max-width: 100%;
+    height: auto;
+}
+.navbar-brand img {
+    max-height: 4rem !important;
 }
 .mainmenu {
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
+    -webkit-box-pack: justify !important;
+    -ms-flex-pack: justify !important;
+    justify-content: space-between !important;
 }
 .bg-menu-special {
-	background-color: #eaeaea;
+    background-color: #eaeaea !important;
 }
 .menu-special {
-	background-color: #fff;
+    background-color: #fff;
 }
-.main-navbar-collapsable {
-	.mainmenu {
-		>li {
-			>a {
-				color: #b43c3e;
-				background-color: #f0f0f0;
-				padding: 0.5rem;
-				&:hover {
-					color: #0044cc;
-					background-color: #fff;
-				}
-			}
-		}
-	}
+.main-navbar-collapsable .mainmenu > li > a {
+    color: #b43c3e;
+    background-color: #f0f0f0;
+    padding: 0.5rem !important;
 }
-.breadcrumbs {
-	background-color: #fff;
+.main-navbar-collapsable .mainmenu > li > a:hover {
+    color: #0044cc;
+    background-color: #fff;
 }
+.breadcrumbs,
 .breadcrumb {
-	background-color: #fff;
-}
-.mobile-navigation {
-	.breadcrumb {
-		font-size: .8em;
-		background: #212529;
-	}
+    background-color: #fff !important;
 }
 .custom-select {
-	font-size: 12px;
-	padding: 4px 24px 4px 8px;
+    font-size: 12px !important;
 }
-.footer {
-	>.container-max {
-		max-width: 1370px;
-	}
-	background-color: #fff;
+.top-bar {
+    background-color: #441410 !important;
+}
+.list-controls-inner {
+    background-color: #efefef !important;
+}
+.list-controls-inner > div {
+    padding: 0.25rem !important;
+}
+.footer > .container-max {
+    max-width: 1170px;
 }
 .back-to-top {
-	margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem !important;
 }
 .back-to-top2 {
-	margin-bottom: 2rem;
+    margin-bottom: 2rem !important;
 }
-.mwst-blende {
-	position: fixed;
-	bottom: 0;
-	z-index: 999;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	padding: 4px 0;
-	width: 100%;
-	height: 30px;
-	line-height: 24px;
-	font-size: 12px;
-	a {
-		color: #d1cfe8;
-	}
-	>a {
-		&:hover {
-			color: #b0add7;
-		}
-	}
+.footer {
+    background-color: #fff;
+}
+.mwst-blende2 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    text-align: center;
+    padding: 4px 0;
+    height: 30px;
+    line-height: 24px;
+    font-size: 12px;
+}
+.mwst-blende2 a {
+    color: #d1cfe8 !important;
+}
+.mwst-blende2 > a:hover {
+    color: #b0add7 !important;
 }
 .cmpboxrecall {
-	bottom: 2px;
+    bottom: 2px !important;
 }
 
-.top-bar {
-	background: color #441410;
+.mobile-navigation .breadcrumb {
+    font-size: 0.8rem;
+    background: #212529 !important;
 }
+
+.cmp-product-thumb,
+.bg-white {
+    border: 1px solid #f2f2f2;
+}
+
+.cmp-product-thumb {
+    border-radius: 1rem;
+}
+
+.cmp-product-thumb:hover {
+    border-color: #ccddff;
+}
+
+div#beschreibung {
+    padding: 2rem !important;
+}
+
+@media (min-width: 992.02px) {
+    .main-navbar-collapsable .mainmenu > li > a {
+        background-color: #f2f2f2 !important;
+    }
+
+    .main-navbar-collapsable .mainmenu > li > a:hover {
+        background-color: #fafafa !important;
+    }
+
+    .list-controls .list-sort,
+    .list-controls .list-itemsperpage {
+        padding: 0.125rem;
+    }
+
+    .list-controls-inner {
+        background-color: #f4f4f4 !important;
+    }
+
+    .custom-select {
+        padding: 0.6rem 2rem 0.6rem 1rem;
+    }
+
+    .breadcrumbs,
+    .breadcrumb {
+        padding-left: 1.5em !important;
+        background-color: #fafafa !important;
+    }
+
+    .only-mobile {
+        display: none !important;
+    }
+    .mobile-navigation {
+        background-color: #fff;
+        color: #04c;
+        padding-top: 0;
+    }
+    .mobile-navigation {
+        position: relative !important;
+        -webkit-transform: translateX(0%) !important;
+                transform: translateX(0%) !important;
+        opacity: 1;
+        font-size: 1rem !important;
+        border: 1px solid #f2f2f2;
+    }
+    .mobile-navigation .mainmenu {
+        position: relative !important;
+    }
+    .mobile-navigation .mainmenu li a {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 1.5rem;
+        padding-right: 0;
+    }
+
+    .mobile-navigation .nav-direction {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .sidebar-categories .category-title,
+    .widget-navigation-tree .category-title {
+        display: none !important;
+    }
+
+    .mobile-navigation .nav-direction {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 0 20%;
+        flex: 1 0 10%;
+        padding: 0.5rem;
+    }
+
+    .desktop-menu .fa-lg {
+        font-size: 1.25rem;
+    }
+
+    .fa-level-up {
+        padding-top: 0.75rem;
+    }
+
+    .mobile-navigation .nav-direction {
+        margin-left: 0.5rem !important;
+    }
+}
+
