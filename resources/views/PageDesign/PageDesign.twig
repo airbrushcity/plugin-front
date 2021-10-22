@@ -8,10 +8,7 @@
 {% embed getPartial('page-metadata') %}{% endembed %}
 {% endblock %}
 {% include getPartial('head') %}
-{% set minSuffix = '.min' %}
-{% if ceresConfig.log.performanceLevel  == 'development' %}
-    {% set minSuffix = '' %}
-{% endif %}
+{% set minSuffix = '.min' %}{% if ceresConfig.log.performanceLevel  == 'development' %}{% set minSuffix = '' %}{% endif %}
 {% if assetName == 'ceres-checkout' %}
 {% set checkoutCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".css?v=" ~ buildHash %}
 {% set checkoutSCSS = config("Front.Settings.CdnPluginUrl") ~ "/css/style-checkout" ~ minSuffix ~ ".scss?v=" ~ buildHash %}
@@ -27,23 +24,20 @@
 <link rel="stylesheet" href="{{ itemCSS }}"{% if isShopBuilder %} data-sass-root="{{ plugin_path('Front') }}" data-sass-original="{{ itemSCSS }}"{% endif %}>
 {{ LayoutContainer.show("Front::SingleItem.Styles") }}
 {% endif %}
-
 {% if isShopBuilder %}<link rel="stylesheet" href="{{ plugin_path("Front") }}/css/style-shopbuilder.css?v={{ buildHash }}">{% endif %}
 {{ LayoutContainer.show("Ceres::Template.StyleOverwrite") }}
 <!-- Extend the existing style with a template -->
 {{ LayoutContainer.show("Ceres::Template.Style") }}
 {{ get_shop_builder_styles() }}
-
 {% for styleTemplate in get_additional_styles() %}
 {% include styleTemplate.path ignore missing with styleTemplate.params %}
 {% endfor %}
 {% block PartialNext %}
 {% endblock %}
-
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningHeadTag") }}
 </head>
 
-<body class="bg-header-image {{ bodyClasses | join(' ') }}">
+<body class="{{ bodyClasses | join(' ') }}">
 
 {{ LayoutContainer.show("Ceres::PageDesign.AfterOpeningBodyTag") }}
 <!-- Google Tag Manager -->
@@ -119,15 +113,19 @@
         "propertyFileUrl": "{{ services.propertyFile.getPropertyFileUrl() }}",
         "isShopBuilder": {{ isShopBuilder | default(false) | json_encode }},
         "bundleSetting": {{ webstoreConfig.dontSplitItemBundle | default(1) }},
+        "bundlePrefix": "{{ services.order.getOrderItemPrefix(2) }}",
+        "bundleComponentPrefix": "{{ services.order.getOrderItemPrefix(3) }}",
         "initialPleaseSelect": {{ webstoreConfig.attributeSelectDefaultOption | default(0) }},
         "publicPath": "{{ plugin_path('Front') ~ '/js/dist/' }}",
         "isCheapestSorting": "{{ services.template.isCheapestSorting() }}",
+        "useVariationOrderProperties": {% if webstoreConfig.useVariationOrderProperties | default(0) %}true{% else %}false{% endif %},
         "initialData": {
             "shippingCountries": {{ services.country.getActiveCountriesList() | filterFields(["id", "currLangName", "isoCode2", "states.id", "states.name", "vatCodes"]) | json_encode | raw }},
             "shippingCountryId": {{ services.checkout.getShippingCountryId() }},
             "showNetPrices": {{ showNetPrices | json_encode }}
         },
-        "features": {}
+        "features": {},
+        "languageMap": {{ webstoreConfig.browserLanguage | json_encode | raw }}
     }
 </script>
 <!-- /SSR -->
