@@ -85,9 +85,9 @@
                     <slot name="after-prices"></slot>
 
                     <div class="category-unit-price small" v-if="!(item.unit.unitOfMeasurement === 'C62' && item.unit.content === 1)">
-                        <span>{{ item.unit.content }}</span>
+                        <span>Menge: {{ item.unit.content }}</span>
                         <span>&nbsp;{{ item.unit.names.name }}</span>
-                        <span v-if="item.variation.mayShowUnitPrice">&nbsp;| {{ item.prices.default.basePrice }}</span>
+                        <span v-if="item.variation.mayShowUnitPrice">&nbsp;({{ item.prices.default.basePrice }})</span>
                     </div>
 
                     <add-to-basket

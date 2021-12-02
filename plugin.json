@@ -1,5 +1,5 @@
 {
-    "version": "5.0.34",
+    "version": "5.0.43",
     "name": "Front",
     "description": "Customisation Theme",
     "namespace": "Front",
@@ -9,9 +9,8 @@
     "require": [],
     "serviceProvider": "Front\\Providers\\FrontServiceProvider",
     "dataProviders": [{
-            "key": "Front\\Containers\\FrontContainer",
-            "name": "Front",
-            "description": "Seo und Optik optimierung"
-        }
-    ]
+        "key": "Front\\Containers\\FrontContainer",
+        "name": "Front",
+        "description": "Seo und Optik optimierung"
+    }]
 }

@@ -108,25 +108,33 @@
     {% elseif shopBuilderTemplate | trim is not empty or isShopBuilder %}
         {# Shopbuilder template #}
         <div class="single container-max page-content">
-            <div class="row">
-                <div class="col">
-                    <single-item
-                        v-cloak
-                        item-data="{{ item | json_data }}"
-                        attributes-data="{{ attributes | json_data }}"
-                        variations="{{ variations | json_data }}"
-                        :after-key="{{ afterKey | json_encode }}"
-                        :please-select-option-variation-id="{{ dynamicVariationId }}"
-                        :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
-                        :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
-                        :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
-                        :item-id="{{ item.documents[0].data.item.id }}"
-                        v-slot="slotProps">
-                        {{ shopBuilderTemplate | raw }}
-                    </single-item>
-                </div>
-            </div>
-        </div>
+           <div class="row">
+            
+               <div class="col-3 col-xl-2 d-none d-lg-block py-2 widget-secondary">
+                   <div class="sidebar-categories">
+                       {{ include('Front::PageDesign.Partials.Header.SideNavigation.twig') }}
+                   </div>
+                   {{ LayoutContainer.show("Front::CategoryItem.SideNavBarBottom") }}
+               </div>
+            
+               <div class="col-12 col-xl-10 col-lg-9">
+                   <single-item
+                       v-cloak
+                       item-data="{{ item | json_data }}"
+                       attributes-data="{{ attributes | json_data }}"
+                       variations="{{ variations | json_data }}"
+                       :after-key="{{ afterKey | json_encode }}"
+                       :please-select-option-variation-id="{{ dynamicVariationId }}"
+                       :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
+                       :show-net-prices="{{ services.customer.showNetPrices() | json_encode }}"
+                       :is-wish-list-enabled="{{ services.url.isRouteEnabled("wish-list") | json_encode }}"
+                       :item-id="{{ item.documents[0].data.item.id }}"
+                       v-slot="slotProps">
+                       {{ shopBuilderTemplate | raw }}
+                   </single-item>
+               </div>
+           </div>
+       </div>
     {% elseif shop_builder_category_template_exists() %}
         {# Empty shop builder template is loading #}
     {% else %}
