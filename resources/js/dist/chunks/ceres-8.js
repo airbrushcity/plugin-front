@@ -290,10 +290,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -834,7 +830,9 @@ var render = function() {
                   _vm.item.unit.content === 1
                 )
                   ? _c("div", { staticClass: "category-unit-price small" }, [
-                      _c("span", [_vm._v(_vm._s(_vm.item.unit.content))]),
+                      _c("span", [
+                        _vm._v("Menge: " + _vm._s(_vm.item.unit.content))
+                      ]),
                       _vm._v(" "),
                       _c("span", [
                         _vm._v(" " + _vm._s(_vm.item.unit.names.name))
@@ -843,7 +841,9 @@ var render = function() {
                       _vm.item.variation.mayShowUnitPrice
                         ? _c("span", [
                             _vm._v(
-                              " | " + _vm._s(_vm.item.prices.default.basePrice)
+                              " (" +
+                                _vm._s(_vm.item.prices.default.basePrice) +
+                                ")"
                             )
                           ])
                         : _vm._e()
@@ -884,65 +884,11 @@ var render = function() {
                 }),
                 _vm._v(" "),
                 _c("div", { staticClass: "vat small text-muted" }, [
-                  _vm._v("\n                    * "),
-                  _vm.showNetPrices
-                    ? _c("span", [
-                        _vm._v(
-                          _vm._s(_vm.$translate("Ceres::Template.itemExclVAT"))
-                        )
-                      ])
-                    : _c("span", [
-                        _vm._v(
-                          _vm._s(_vm.$translate("Ceres::Template.itemInclVAT"))
-                        )
-                      ]),
                   _vm._v(
-                    "\n                    " +
-                      _vm._s(_vm.$translate("Ceres::Template.itemExclusive")) +
-                      "\n                    "
-                  ),
-                  _vm.$ceres.config.global.shippingCostsCategoryId > 0
-                    ? _c(
-                        "a",
-                        {
-                          staticClass: "text-appearance",
-                          attrs: {
-                            "data-toggle": "modal",
-                            href: "#shippingscosts",
-                            title: _vm.$translate(
-                              "Ceres::Template.itemShippingCosts"
-                            )
-                          }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(
-                              _vm.$translate(
-                                "Ceres::Template.itemShippingCosts"
-                              )
-                            )
-                          )
-                        ]
-                      )
-                    : _c(
-                        "a",
-                        {
-                          attrs: {
-                            title: _vm.$translate(
-                              "Ceres::Template.itemShippingCosts"
-                            )
-                          }
-                        },
-                        [
-                          _vm._v(
-                            _vm._s(
-                              _vm.$translate(
-                                "Ceres::Template.itemShippingCosts"
-                              )
-                            )
-                          )
-                        ]
-                      )
+                    "\n                    ** Versandgewicht: " +
+                      _vm._s(_vm.item.variation.weightG) +
+                      " Gramm. \n                "
+                  )
                 ])
               ],
               2
